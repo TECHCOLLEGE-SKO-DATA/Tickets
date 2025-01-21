@@ -26,22 +26,41 @@
 
 }
 
+/* Denne klasse bruges til at vise knappen øverst til højre */
+.customHelpButton {
+  position: absolute;  
+  top: 65px;             
+  right: 140px;           
+  z-index: 10;
+  border-radius: 8px;           
+}
+
+/* Containeren, der indeholder collapse */
+.customHelpBox {
+  position: absolute;    
+  top: 120px;              
+  right: 50px;            
+  width: 330px;           
+}
+
 #KundeOplysninger {
-  margin-left: 50px;
+  margin-left: -170px;
   margin-top: 30px;
   width: 500px;
   padding: 1%;
 }
 
 #SagsBeskrivelseBox {
-margin-top: 30px;
-height: 200px;
+  margin-top: 30px;
+  height: 200px;
 }
 
 #SagsHistorikBox {
-margin-top: 70px;
-height: 200px;
+  margin-top: 70px;
+  height: 200px;
 }
+
+
 
 body::before {
   content: "XS";
