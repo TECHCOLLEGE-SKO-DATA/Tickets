@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Opret Sag</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark bg-primary navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Opret Sag</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <a id="customerButton" class="btn btn-primary" href="customerPage.html" role="button">Kunde
+                        Oversigt</a>
+                    <a id="ticketBtn" class="btn btn-primary" href="ticket.html" role="button">Tickets</a>
+                    <a id="sagBtn" class="btn btn-primary  nav-link disabled" href="index.html" role="button">Opret
+                        sag</a>
+                        <a id="customerButton" class="btn btn-primary" href="userPage.html" role="button">Bruger Oversigt</a>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- KundeOplysninger -->
+            <div class="col-md-6 border" id="KundeOplysninger">
+                <p>Kundens Fornavn og Efternavn</p>
+                <div class="input-group mb-4">
+                    <input type="text" placeholder="Fornavn" class="form-control">
+                    <input type="text" placeholder="Efternavn" class="form-control">
+                </div>
+                Kundens Telefonnummer
+                <div class="input-group mb-4">
+                    <span class="input-group-text" id="landekode">+45</span>
+                    <input type="text" class="form-control" placeholder="Kundens Tlf Nummer">
+                </div>
+                Kundens Mailaddresse
+                <div class="input-group mb-4">
+                    <input type="text" class="form-control" placeholder="Kundens Mailaddresse">
+                </div>
+                Kundens Addresse
+                <div class="input-group mb-4">
+                    <input type="text" class="form-control" placeholder="Kundens Addresse">
+                </div>
+                Vejnummer
+                <div class="mb-4">
+                    <input type="text" class="form-control" placeholder="Vejnummer">
+                </div>
+                By/Postnummer
+                <div class="input-group mb-4">
+                    <input type="text" placeholder="By" class="form-control">
+                    <input type="text" placeholder="Postnummer" class="form-control">
+                </div>
+            </div>
+
+
+            <div class="col-md-5">
+                <div class="d-flex flex-column gap-4">
+                    <!-- SagsBeskrivelseBox -->
+                    <div class="border p-3" id="SagsBeskrivelseBox">
+                        <h5>Sags Beskrivelse</h5>
+                        <textarea class="form-control" rows="5"
+                            placeholder="Indtast sags beskrivelse her..."></textarea>
+                    </div>
+                    <form class="d-flex justify-content-end" style="gap: 8px">
+                        <button class="btn btn-success" type="submit">Gem</button>
+                        <button class="btn btn-danger" type="submit">Ryd</button>
+                    </form>
+                    <!-- SagsHistorikBox -->
+                    <div class="border p-3" id="SagsHistorikBox">
+                        <h5>Sags Historik</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script src="/scripts/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

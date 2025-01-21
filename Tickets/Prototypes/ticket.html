@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ticket Status</title>
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-primary navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Tickets</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <a id="customerButton" class="btn btn-primary" href="customerPage.html" role="button">Kunde Oversigt</a>
+          <a id="ticketBtn" class="btn btn-primary nav-link disabled" href="ticket.html" role="button">Tickets</a>
+          <a id="sagBtn" class="btn btn-primary" href="index.html" role="button">Opret sag</a>
+          <a id="customerButton" class="btn btn-primary" href="userPage.html" role="button">Bruger Oversigt</a>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div>
+    <div id="searchinput" class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Søg">
+    </div>
+  </div>
+
+  <!-- Data -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Kundenavn</th>
+        <th scope="col">Email</th>
+        <th scope="col">Titel</th>
+        <th scope="col">Beskrivelse</th> 
+        <th scope="col">Udkørsel</th> 
+        <th scope="col">Status</th>
+        <th scope="col">Oprettet</th>
+        <th scope="col">Handlinger</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td scope="row">1</td>
+        <td>Mark Hansen</td>
+        <td>mark.hansen@gmail.com</td>
+        <td>Hjælp til HP-Printer</td>
+        <td>Der er problemer med printerens forbindelse til netværket.</td>
+        <td>16/01/2025 - 10:30</td>
+        <td>Åben</td>
+        <td>2025-01-14 10:30</td>
+        <td>
+          <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#ticketModal">
+            Rediger
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Modal -->
+  <div class="modal fade" id="ticketModal" tabindex="-1" aria-labelledby="ticketModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ticketModalLabel">Rediger Ticket</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Luk"></button>
+        </div>
+        <div class="modal-body">
+          <form id="editTicketForm">
+            <div class="mb-3">
+              <label for="modalTicketNumber" class="form-label">Ticket Nummer</label>
+              <input type="text" class="form-control" id="modalTicketNumber" readonly>
+            </div>
+            <div class="mb-3">
+              <label for="modalTicketCustomerName" class="form-label">Kundenavn</label>
+              <input type="text" class="form-control" id="modalTicketCustomerName">
+            </div>
+            <div class="mb-3">
+              <label for="modalTicketEmail" class="form-label">Email</label>
+              <input type="email" class="form-control" id="modalTicketEmail">
+            </div>
+            <div class="mb-3">
+              <label for="modalTicketTitle" class="form-label">Titel</label>
+              <input type="text" class="form-control" id="modalTicketTitle">
+            </div>
+            <div class="mb-3">
+              <label for="modalTicketDescription" class="form-label">Beskrivelse</label>
+              <textarea class="form-control" id="modalTicketDescription"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="modalTicketCustomerName" class="form-label">Udkørsel</label>
+              <input type="text" class="form-control mb-4" id="modalTicketDrive" placeholder="By">
+              <input type="text" class="form-control mb-4" id="modalTicketDrive" placeholder="Adresse">
+              <input type="text" class="form-control mb-4" id="modalTicketDrive" placeholder="Vejnavn / Etage">
+            </div>
+            <div class="mb-3">
+              <label for="modalTicketStatus" class="form-label">Status</label>
+              <select class="form-select" id="modalTicketStatus">
+                <option value="Åben">Åben</option>
+                <option value="I gang">I gang</option>
+                <option value="På hold">På hold</option>
+                <option value="Lukket">Lukket</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="modalTicketCreated" class="form-label">Oprettet</label>
+              <input type="text" class="form-control" id="modalTicketCreated" readonly="true">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuller</button>
+          <button type="button" class="btn btn-primary" id="saveTicketBtn">Gem ændringer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/scripts/bootstrap.bundle.min.js"></script>
+  <script src="/scripts/customScript.js"></script>
+</body>
+
+</html>
