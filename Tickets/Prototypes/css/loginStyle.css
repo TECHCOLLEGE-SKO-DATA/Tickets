@@ -1,0 +1,97 @@
+/* Grundlæggende stil for body */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Wrapper for login container */
+  .login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  /* Login container */
+  .login-container {
+    display: flex;
+    width: 900px;
+    height: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  /* Venstre sektion */
+  .login-left {
+    flex: 1;
+    color: white;
+    padding: 20px;
+  }
+  
+  .welcome-image {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .pchjalp-text {
+    text-align: center;   
+    font-weight: bold; 
+  }
+  
+  /* Højre sektion */
+  .login-right {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+  }
+  
+  .login-right h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-options a {
+    font-size: 0.9rem;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .form-options a:hover {
+    text-decoration: underline;
+  }
+  
+  button.btn-primary {
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+  }
+  
+  button.btn-primary:hover {
+    background-color: #add659;
+  }
+  
