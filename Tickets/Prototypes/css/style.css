@@ -131,3 +131,11 @@ body::before {
     content: "XXL";
   }
 }
+.usercontainer {
+  display: flex;
+}
+.userbutton{
+  margin-left: 5px;
+  margin-top: 10px;
+  width: 200px;
+}
