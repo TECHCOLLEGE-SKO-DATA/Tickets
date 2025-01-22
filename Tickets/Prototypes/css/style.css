@@ -33,7 +33,7 @@
 .customHelpButton {
   position: fixed;  
   top: 65px;             
-  right: 20px; /* Juster for at undgå at det kommer uden for skærmen */
+  right: 110px; /* Juster for at undgå at det kommer uden for skærmen */
   z-index: 10;
   border-radius: 8px;
 }
@@ -46,6 +46,10 @@
   width: 330px;           
 }
 
+.row{
+  position: relative;
+  left: -150px;
+}
 
 #KundeOplysninger {
   margin-left: 0;
