@@ -29,6 +29,10 @@
 
 }
 
+.customBtn {
+  border-radius: 5px;
+}
+
 /* Denne klasse bruges til at vise knappen øverst til højre */
 .customHelpButton {
   position: fixed;  
