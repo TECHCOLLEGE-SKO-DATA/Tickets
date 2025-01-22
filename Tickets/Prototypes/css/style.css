@@ -33,6 +33,13 @@
   border-radius: 5px;
 }
 
+/* Ikoner til navbar (dem der er til venstre for teksten) */
+.navbar-icons {
+  margin-right: 8px;
+  width: 24px;
+  height: 24px;
+}
+
 /* Denne klasse bruges til at vise knappen øverst til højre */
 .customHelpButton {
   position: fixed;  
@@ -58,8 +65,8 @@
 }
 
 .border {
-  border-width: 1px; /* Overskriver Bootstrap's standard (1px) */
-  border-color: rgb(145, 143, 143) !important; /* Sætter farven */
+  border-width: 1.5px; /* Overskriver Bootstrap's standard (1px) */
+  border-color: #009100 !important; /* Sætter farven */
 }
 
 #KundeOplysninger {
