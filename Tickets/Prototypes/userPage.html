@@ -34,7 +34,9 @@
       <input type="text" class="form-control" placeholder="Søg">
     </div>
     <div class="userbutton">
-      <button class="btn btn-primary" type="submit">Opret bruger</button>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createuserModal">
+        Opret bruger
+      </button>
     </div>
   </div>
 
@@ -172,6 +174,56 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuller</button>
           <button type="button" class="btn btn-primary" id="saveTicketBtn">Gem ændringer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="createuserModal" tabindex="-1" aria-labelledby="createuserModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="createuserModalLabel">Opret bruger</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="modalUserfornavn" class="form-label">fornavn</label>
+            <input type="text" class="form-control" id="modalUserfornavn">
+          </div>
+          <div class="mb-3">
+            <label for="modalUserefternavn" class="form-label">efternavn</label>
+            <input type="text" class="form-control" id="modalUserefternavn">
+          </div>
+          <div class="mb-3">
+              <label for="modalUserUsername" class="form-label">Brugernavn</label>
+              <input type="email" class="form-control" id="modalUserUsername">
+            </div>
+            <div class="mb-3">
+              <label for="modalUserPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="modalUserPassword">
+            </div>
+            <div class="mb-3">
+              <label for="modalUserEmail" class="form-label">Email</label>
+              <input type="email" class="form-control" id="modalUserEmail">
+            </div>
+          <div class="mb-3">
+            <label for="modalUserPhoneNumber" class="form-label">Telefonnummer</label>
+            <input type="text" class="form-control" id="modalUserPhoneNumber">
+          </div>
+          <div class="mb-3">
+              <label for="modalUserRole" class="form-label">Rolle</label>
+              <select class="form-select" id="modalUserRole">
+                <option value="Admin">Admin</option>
+                <option value="Rolle1">Rolle1</option>
+                <option value="Rolle2">Rolle2</option>
+                <option value="Rolle3">Rolle3</option>
+              </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Luk</button>
+          <button type="button" class="btn btn-primary">Tilføj</button>
         </div>
       </div>
     </div>

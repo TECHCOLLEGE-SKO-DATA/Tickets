@@ -14,9 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
 // Håndtere klik-funktion på tabellen - Tickets.
 document.querySelectorAll('table tbody tr').forEach(row => {
   row.addEventListener('click', function () {
-    console.log('Klikket på række: ', this);
-
-    if (this.cells.length >= 7) { 
       var ticketNumber = this.cells[0].textContent;
       var ticketCustomerName = this.cells[1].textContent;
       var ticketEmail = this.cells[2].textContent;
@@ -36,9 +33,6 @@ document.querySelectorAll('table tbody tr').forEach(row => {
 
       var ticketModal = new bootstrap.Modal(document.getElementById('ticketModal'));
       ticketModal.show();
-    } else {
-      console.log("Denne række har ikke nok celler.");
-    }
   });
 });
 
@@ -72,7 +66,7 @@ document.querySelectorAll('table tbody tr').forEach(row => {
 });
 
 
-// Håndtere klik-funktion på tabellen - Kunder.
+// Håndtere klik-funktion på tabellen - Bruger.
 document.querySelectorAll('table tbody tr').forEach(row => {
   row.addEventListener('click', function () {
     var userNumber = this.cells[0].textContent;
