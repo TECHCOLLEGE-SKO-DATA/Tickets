@@ -1,3 +1,6 @@
+.body{
+  overflow: hidden;
+}
 /* This box class is purely used for explaining how the bootstrap grid system works. */
 .box {
   background-color: lightblue;
@@ -28,23 +31,24 @@
 
 /* Denne klasse bruges til at vise knappen øverst til højre */
 .customHelpButton {
-  position: absolute;  
+  position: fixed;  
   top: 65px;             
-  right: 140px;           
+  right: 20px; /* Juster for at undgå at det kommer uden for skærmen */
   z-index: 10;
-  border-radius: 8px;           
+  border-radius: 8px;
 }
 
 /* Containeren, der indeholder collapse */
 .customHelpBox {
-  position: absolute;    
+  position: fixed;    
   top: 120px;              
-  right: 50px;            
+  right: 20px; /* Juster for at undgå at det kommer uden for skærmen */
   width: 330px;           
 }
 
+
 #KundeOplysninger {
-  margin-left: -170px;
+  margin-left: 0;
   margin-top: 30px;
   width: 500px;
   padding: 1%;
@@ -59,14 +63,7 @@
   margin-top: 70px;
   height: 200px;
 }
-.usercontainer {
-  display: flex;
-}
-.userbutton{
-  margin-left: 5px;
-  margin-top: 10px;
-  width: 200px;
-}
+
 
 
 body::before {
@@ -107,4 +104,13 @@ body::before {
   body::before {
     content: "XXL";
   }
+}
+
+.usercontainer {
+  display: flex;
+}
+.userbutton{
+  margin-left: 5px;
+  margin-top: 10px;
+  width: 200px;
 }
