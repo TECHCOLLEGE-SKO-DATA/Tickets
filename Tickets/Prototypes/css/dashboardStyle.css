@@ -1,0 +1,99 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+.dropdown-menu {
+    background: linear-gradient(135deg, #2c2f33, #23272a); /* Gradient baggrund */
+    border: none; /* Fjerner kant */
+}
+
+.dropdown-item {
+    color: #ffffff; 
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #40444b; 
+    color: #ffffff; 
+}
+
+.dropdown-menu {
+    border-radius: 8px;
+}
+
+.sidebar {
+    width: 300px;
+    height: 100vh;
+    background: linear-gradient(135deg, #009100, #016e01); 
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.nav-menu, .sub-menu, .settings-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu li, .sub-menu li, .settings-menu li {
+    margin: 1rem 0;
+}
+
+.nav-menu li a, .sub-menu li a, .settings-menu li a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.nav-menu li a:hover, .sub-menu li a:hover, .settings-menu li a:hover {
+    background-color: #00ad00;
+}
+
+.divider {
+    height: 1px;
+    background-color: #ffffff50;
+    margin: 1rem 0;
+}
+
+.user-profile {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.user-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.user-info p {
+    margin: 0;
+    font-size: 0.875rem;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Dashboard Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="/css/dashboardStyle.css">
+    </head>
+    <body>
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>Tickets</h2>
+                <span>v0.1</span>
+            </div>
+            <ul class="nav-menu">
+                <div class="dropdown">
+                    <li><a href="index.html"><img src="/Assets/Images/Icons/note_add.svg" alt=""> Opret Sag</a></li>
+                    <li><a class="btn btn-primary dropdown-toggle d-flex align-items-center" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m389-400 91-55 91 55-24-104 80-69-105-9-42-98-42 98-105 9 80 69-24 104ZM200-120v-640q0-33 23.5-56.5T280-840h400q33 0 56.5 23.5T760-760v640L480-240 200-120Zm80-122 200-86 200 86v-518H280v518Zm0-518h400-400Z"/></svg>
+                        Sagshåndtering
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="ticket.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#666769"><path d="m368-320 112-84 110 84-42-136 112-88H524l-44-136-44 136H300l110 88-42 136ZM160-160q-33 0-56.5-23.5T80-240v-135q0-11 7-19t18-10q24-8 39.5-29t15.5-47q0-26-15.5-47T105-556q-11-2-18-10t-7-19v-135q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v135q0 11-7 19t-18 10q-24 8-39.5 29T800-480q0 26 15.5 47t39.5 29q11 2 18 10t7 19v135q0 33-23.5 56.5T800-160H160Zm0-80h640v-102q-37-22-58.5-58.5T720-480q0-43 21.5-79.5T800-618v-102H160v102q37 22 58.5 58.5T240-480q0 43-21.5 79.5T160-342v102Zm320-240Z"/></svg>
+                            Tickets</a></li>
+                        <li><a class="dropdown-item" href="canbanboardPage.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#666769"><path d="M280-280h80v-200h-80v200Zm320 0h80v-400h-80v400Zm-160 0h80v-120h-80v120Zm0-200h80v-80h-80v80ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/></svg>
+                            Kanbantavle</a></li>
+                    </ul>
+                </li>
+                </div>
+                <li><a href="customerPage.html"><img src="/Assets//Images/Icons/groups_2.svg" alt=""> Kundeoversigt</a></li>
+                <li><a href="#"><img src="/Assets/Images/Icons/adminpanel.svg" alt=""> Brugeroversigt</a></li>
+                <li><a href="#"><img src="/Assets/Images/Icons/no_crash.svg" alt=""> Udkørsel</a></li>
+            </ul>
+            <div class="divider"></div>
+            <ul class="settings-menu">
+                <li><a href="#"><img src="/Assets/Images/Icons/manage_accounts.svg" alt=""> Indstillinger</a></li>
+                <li><a href="#"><img src="/Assets/Images/Icons/logout_24dp.svg" alt=""> Log ud</a></li>
+            </ul>
+            <div class="user-profile">
+                <img src="/Assets/Images/Icons/TechLogo(Lille).jpg" alt="Profile Picture">
+                <div class="user-info">
+                    <p>Admin</p>
+                    <p>ticketAdmin@techcollege.dk</p>
+                </div>
+            </div>
+        </div>
+        
+        <script src="/scripts/bootstrap.bundle.min.js"></script>
+        <script src="/scripts/customScript.js"></script>
+    </body>
+</html>
