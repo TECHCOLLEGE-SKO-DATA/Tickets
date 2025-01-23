@@ -11,28 +11,38 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+// Funktion til at fjerne backdrop manuelt når du lukker den igen. 
+function removeBackdrops() {
+  const backdrops = document.querySelectorAll('.modal-backdrop');
+  backdrops.forEach(backdrop => backdrop.remove());
+  document.body.classList.remove('modal-open'); 
+  document.body.style.overflow = ''; 
+}
+
 // Håndtere klik-funktion på tabellen - Tickets.
 document.querySelectorAll('table tbody tr').forEach(row => {
   row.addEventListener('click', function () {
-      var ticketNumber = this.cells[0].textContent;
-      var ticketCustomerName = this.cells[1].textContent;
-      var ticketEmail = this.cells[2].textContent;
-      var ticketTitle = this.cells[3].textContent;
-      var ticketDescription = this.cells[4].textContent; 
-      var ticketStatus = this.cells[5].textContent;
-      var ticketCreated = this.cells[7].textContent;
+    var ticketNumber = this.cells[0].textContent;
+    var ticketCustomerName = this.cells[1].textContent;
+    var ticketEmail = this.cells[2].textContent;
+    var ticketTitle = this.cells[3].textContent;
+    var ticketDescription = this.cells[4].textContent; 
+    var ticketStatus = this.cells[5].textContent;
+    var ticketCreated = this.cells[7].textContent;
 
+    document.getElementById('modalTicketNumber').value = ticketNumber;
+    document.getElementById('modalTicketCustomerName').value = ticketCustomerName;
+    document.getElementById('modalTicketEmail').value = ticketEmail;
+    document.getElementById('modalTicketTitle').value = ticketTitle;
+    document.getElementById('modalTicketDescription').value = ticketDescription;
+    document.getElementById('modalTicketStatus').value = ticketStatus;
+    document.getElementById('modalTicketCreated').value = ticketCreated;
 
-      document.getElementById('modalTicketNumber').value = ticketNumber;
-      document.getElementById('modalTicketCustomerName').value = ticketCustomerName;
-      document.getElementById('modalTicketEmail').value = ticketEmail;
-      document.getElementById('modalTicketTitle').value = ticketTitle;
-      document.getElementById('modalTicketDescription').value = ticketDescription;
-      document.getElementById('modalTicketStatus').value = ticketStatus;
-      document.getElementById('modalTicketCreated').value = ticketCreated;
+    var ticketModal = new bootstrap.Modal(document.getElementById('ticketModal'));
+    ticketModal.show();
 
-      var ticketModal = new bootstrap.Modal(document.getElementById('ticketModal'));
-      ticketModal.show();
+    // Håndter fjernelse af backdrop ved lukning
+    document.getElementById('ticketModal').addEventListener('hidden.bs.modal', removeBackdrops);
   });
 });
 
@@ -59,12 +69,12 @@ document.querySelectorAll('table tbody tr').forEach(row => {
     document.getElementById('modalCity').value = kundeCity;
     document.getElementById('modalZipCode').value = kundeZipCode;
 
-
     var ticketModal = new bootstrap.Modal(document.getElementById('kundeModal'));
     ticketModal.show();
+
+    document.getElementById('kundeModal').addEventListener('hidden.bs.modal', removeBackdrops);
   });
 });
-
 
 // Håndtere klik-funktion på tabellen - Bruger.
 document.querySelectorAll('table tbody tr').forEach(row => {
@@ -85,9 +95,10 @@ document.querySelectorAll('table tbody tr').forEach(row => {
     document.getElementById('modalUserPhoneNumber').value = userPhoneNumber;
     document.getElementById('modalUserRole').value = userrole;
 
-
     var ticketModal = new bootstrap.Modal(document.getElementById('userModal'));
     ticketModal.show();
+
+    // Håndter fjernelse af backdrop ved lukning
+    document.getElementById('userModal').addEventListener('hidden.bs.modal', removeBackdrops);
   });
 });
-
