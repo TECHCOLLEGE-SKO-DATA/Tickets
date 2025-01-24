@@ -18,6 +18,20 @@ body{
     background-color: #ffffff50;
     margin: 1rem 0;
 }
+
+a {
+  text-decoration: none; 
+  color: inherit; 
+  display: inline-block; 
+  transition: background-color 150ms ease, transform 150ms ease;
+}
+
+a:hover {
+  background-color: #03ad03; 
+  transform: rotate(1.5deg); 
+  color: white; 
+}
+
 #sidebar{
   box-sizing: border-box;
   height: 100vh;
@@ -25,7 +39,6 @@ body{
   padding: 5px 1em;
   color: white;
   border-right: 1px solid var(--line-clr);
-  background: linear-gradient(135deg, #009100, #016e01);
   position: sticky;
   top: 0;
   align-self: start;
@@ -38,6 +51,7 @@ body{
 #sidebar > ul {
     flex-grow: 1;
   }
+
 .dropdown-menu {
     color: white;
     background: linear-gradient(135deg, #2c2f33, #23272a); /* Gradient baggrund */
@@ -80,10 +94,16 @@ body{
     font-size: 0.875rem;
 }
 
-#sidebar.close{
-  padding: 5px;
+#sidebar.closed {
+  padding: 6px;
   width: 60px;
 }
+
+/* Det her skal muligvis have et fix, da vi i fremtiden gerne vil have at user-profile bliver vist når vi også lukker sidebaren. */
+#sidebar.closed .user-profile {
+  display: none;
+}
+
 #sidebar ul{
   list-style: none;
 }
@@ -92,14 +112,14 @@ body{
   justify-content: flex-end;
   margin-bottom: 16px;
   .logo{
-    font-weight: 600;
+    font-weight: 200;
   }
 }
 #sidebar ul li.active a{
   color: var(--accent-clr);
 
-  img{
-    fill: var(--accent-clr);
+  svg{
+    fill: white;
   }
 }
 
@@ -126,9 +146,6 @@ body{
 #sidebar a span, #sidebar .dropdown-btn span{
   flex-grow: 1;
 }
-#sidebar a:hover, #sidebar .dropdown-btn:hover{
-  background-color: var(--hover-clr);
-}
 #sidebar .sub-menu{
   display: grid;
   grid-template-rows: 0fr;
@@ -150,6 +167,7 @@ body{
 #sidebar .sub-menu a{
   padding-left: 2em;
 }
+
 #toggle-btn{
   margin-left: auto;
   padding: 1em;
@@ -160,6 +178,7 @@ body{
 
   svg{
     transition: rotate 150ms ease;
+    fill: white;
   }
 }
 #toggle-btn:hover{
@@ -234,7 +253,6 @@ main p{
       box-sizing: border-box;
       height: 60px;
       width: 100%;
-      background-color: var(--hover-clr);
       border-top: 1px solid var(--line-clr);
       display: flex;
       justify-content: center;
