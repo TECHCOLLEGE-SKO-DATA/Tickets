@@ -54,8 +54,8 @@ a:hover {
 
 .dropdown-menu {
     color: white;
-    background: linear-gradient(135deg, #2c2f33, #23272a); /* Gradient baggrund */
-    border: none; /* Fjerner kant */
+    background: linear-gradient(135deg, #2c2f33, #23272a);
+    border: none;
 }
 
 .dropdown-item {
