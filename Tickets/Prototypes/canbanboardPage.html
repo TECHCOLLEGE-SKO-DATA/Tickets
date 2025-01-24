@@ -4,15 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Opret Sag</title>
+    <title>Kanbantavle</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
     <nav class="navbar navbar-dark bg-primary navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Opret Sag</a>
+            <a class="navbar-brand" href="#">Kanbantavle</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -41,13 +40,13 @@
                             <li><a class="dropdown-item" href="ticket.html">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#666769"><path d="m368-320 112-84 110 84-42-136 112-88H524l-44-136-44 136H300l110 88-42 136ZM160-160q-33 0-56.5-23.5T80-240v-135q0-11 7-19t18-10q24-8 39.5-29t15.5-47q0-26-15.5-47T105-556q-11-2-18-10t-7-19v-135q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v135q0 11-7 19t-18 10q-24 8-39.5 29T800-480q0 26 15.5 47t39.5 29q11 2 18 10t7 19v135q0 33-23.5 56.5T800-160H160Zm0-80h640v-102q-37-22-58.5-58.5T720-480q0-43 21.5-79.5T800-618v-102H160v102q37 22 58.5 58.5T240-480q0 43-21.5 79.5T160-342v102Zm320-240Z"/></svg>
                                 Tickets</a></li>
-                            <li><a class="dropdown-item" href="canbanboardPage.html">
+                            <li><a class="dropdown-item disabled" href="canbanboardPage.html">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#666769"><path d="M280-280h80v-200h-80v200Zm320 0h80v-400h-80v400Zm-160 0h80v-120h-80v120Zm0-200h80v-80h-80v80ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/></svg>
                                 Kanbantavle</a></li>
                         </ul>
                     </div>
 
-                    <a id="sagBtn" class="btn btn-primary d-flex align-items-center nav-link disabled" href="index.html"
+                    <a id="sagBtn" class="btn btn-primary d-flex align-items-center" href="index.html"
                         role="button">
                         <svg class="navbar-icons" xmlns="http://www.w3.org/2000/svg" height="24px"
                             viewBox="0 -960 960 960" width="24px" fill="#e8eaed" class="me-2">
@@ -71,85 +70,93 @@
         </div>
     </nav>
 
+    <!--Kanban board
+    
+    Ny
+    I gang
+    På hold
+    Lukket
 
-    <!-- Knappen og Collapse Box (Help Button) -->
-    <div class="row">
-        <div class="col-md-12">
-            <button class="btn btn-primary customHelpButton" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Brug for hjælp?
-            </button>
-            <div class="collapse customHelpBox" id="collapseExample">
-                <div class="card card-body">
-                    <li>Spørg og notere kundens personlige oplysninger i de tilhørende felter</li>
-                    <p></p>
-                    <li>Notér hvad kunden har problemer med? Ex. Printer, PC osv.</li>
-                    <p></p>
-                    <li>Find ud af modellen det drejer sig om hvis det er hardware?. Ex. en Iphone 7, en Acer Aspire 7
-                        bærbar</li>
-                    <p></p>
-                    <li></li>
+
+    -->
+
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Kanban Tavle</h1>
+        <div class="d-flex justify-content-center">
+          <!-- Åben Column -->
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header bg-primary text-white text-center">
+                <strong>Åben</strong>
+              </div>
+              <div class="card-body kanban-column" id="open-column">
+                <div class="card kanban-card bg-light p-2">
+                  <p class="mb-0">Opgave 1</p>
                 </div>
+                <div class="card kanban-card bg-light p-2">
+                  <p class="mb-0">Opgave 2</p>
+                </div>
+              </div>
             </div>
+          </div>
+    
+          <!-- I gang Column -->
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header bg-primary text-white text-center">
+                <strong>I gang</strong>
+              </div>
+              <div class="card-body kanban-column" id="inprogress-column">
+                <div class="card kanban-card bg-light p-2">
+                  <p class="mb-0">Opgave 3</p>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- På hold Column -->
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header bg-primary text-white text-center">
+                <strong>På hold</strong>
+              </div>
+              <div class="card-body kanban-column" id="hold-column">
+                <div class="card kanban-card bg-light p-2">
+                  <p class="mb-0">Opgave 4</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lukket Column -->
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header bg-primary text-white text-center">
+                <strong>Lukket</strong>
+              </div>
+              <div class="card-body kanban-column" id="lukket-column">
+                <div class="card kanban-card bg-light p-2">
+                  <p class="mb-0">Opgave 5</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Udkørsel Column -->
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header bg-primary text-white text-center">
+                <strong>Udkørsel</strong>
+              </div>
+              <div class="card-body kanban-column" id="udkørsel-column">
+                <div class="card kanban-card bg-light p-2">
+                  <p class="mb-0">Opgave 6</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <!-- Kolonne med Kunde Oplysninger -->
-            <div class="col-md-6 border" id="KundeOplysninger">
-                <p>Kundens Fornavn og Efternavn</p>
-                <div class="input-group mb-4">
-                    <input type="text" placeholder="Fornavn" class="form-control">
-                    <input type="text" placeholder="Efternavn" class="form-control">
-                </div>
-                Kundens Telefonnummer
-                <div class="input-group mb-4">
-                    <span class="input-group-text" id="landekode">+45</span>
-                    <input type="text" class="form-control" placeholder="Kundens Tlf Nummer">
-                </div>
-                Kundens Mailaddresse
-                <div class="input-group mb-4">
-                    <input type="text" class="form-control" placeholder="Kundens Mailaddresse">
-                </div>
-                Kundens Addresse
-                <div class="input-group mb-4">
-                    <input type="text" class="form-control" placeholder="Kundens Addresse">
-                </div>
-                Vejnummer
-                <div class="mb-4">
-                    <input type="text" class="form-control" placeholder="Vejnummer">
-                </div>
-                By/Postnummer
-                <div class="input-group mb-4">
-                    <input type="text" placeholder="By" class="form-control">
-                    <input type="text" placeholder="Postnummer" class="form-control">
-                </div>
-            </div>
-
-            <!-- Kolonne med Sagsbeskrivelse og Sags Historik -->
-            <div class="col-md-6">
-                <div class="d-flex flex-column gap-4">
-                    <!-- SagsBeskrivelseBox -->
-                    <div class="border p-3" id="SagsBeskrivelseBox">
-                        <h5>Sags Beskrivelse</h5>
-                        <textarea class="form-control" rows="5"
-                            placeholder="Indtast sags beskrivelse her..."></textarea>
-                    </div>
-                    <form class="d-flex justify-content-end" style="gap: 8px">
-                        <button class="btn btn-success" type="submit">Gem</button>
-                        <button class="btn btn-danger" type="submit">Ryd</button>
-                    </form>
-                    <!-- SagsHistorikBox -->
-                    <div class="border p-3" id="SagsHistorikBox">
-                        <h5>Sags Historik</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <script src="/scripts/bootstrap.bundle.min.js"></script>
+      </div>
+    
+    <script src="/scripts/bootstrap.bundle.min.js"></script>
 </body>
-
-</html>
