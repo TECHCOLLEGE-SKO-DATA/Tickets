@@ -1,3 +1,16 @@
+// Filter søgning - Under Ticket Status.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelector('.searchinput input').addEventListener('input', function () {
+    const searchValue = this.value.toLowerCase();
+    const rows = document.querySelectorAll('tbody tr');
+
+    rows.forEach(row => {
+      const rowText = row.textContent.toLowerCase();
+      row.style.display = rowText.includes(searchValue) ? '' : 'none';
+    });
+  });
+});
+
 // Sidebar stuff
 const toggleButton = document.getElementById('toggle-btn')
 const sidebar = document.getElementById('sidebar')
@@ -30,19 +43,6 @@ function closeAllSubMenus(){
     ul.previousElementSibling.classList.remove('rotate')
   })
 }
-
-// Filter søgning - Under Ticket Status.
-document.addEventListener('DOMContentLoaded', function () {
-    document.querySelector('#searchinput input').addEventListener('input', function () {
-      const searchValue = this.value.toLowerCase();
-      const rows = document.querySelectorAll('tbody tr');
-  
-      rows.forEach(row => {
-        const rowText = row.textContent.toLowerCase();
-        row.style.display = rowText.includes(searchValue) ? '' : 'none';
-      });
-    });
-  });
 
 // Funktion til at fjerne backdrop manuelt når du lukker den igen. 
 function removeBackdrops() {

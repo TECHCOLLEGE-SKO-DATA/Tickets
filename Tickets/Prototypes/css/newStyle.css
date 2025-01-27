@@ -437,3 +437,37 @@ main p {
 }
 
 /* Customer Page */
+.table-responsive{
+    margin-top: 20px;
+    width: 110%;
+}
+
+.container{
+    max-width: 95%;
+    margin: -1%;
+}
+
+.searchinput {
+    max-width: 20%;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    #searchinput .form-control {
+        font-size: 1rem;  
+        padding: 0.6rem;
+    }
+
+    .table th, .table td {
+        font-size: 0.9rem; 
+    }
+
+    .btn-sm.customBtn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
