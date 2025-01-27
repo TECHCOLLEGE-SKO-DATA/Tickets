@@ -136,3 +136,39 @@ document.querySelectorAll('table tbody tr').forEach(row => {
       document.getElementById('userModal').addEventListener('hidden.bs.modal', removeBackdrops);
     });
   });
+  
+  const kanbanCards = document.querySelectorAll('.kanban-card');
+  const kanbanColumns = document.querySelectorAll('.kanban-column');
+
+  let draggedCard = null;
+
+  kanbanCards.forEach(card => {
+    card.addEventListener('dragstart', e => {
+      draggedCard = card;
+      setTimeout(() => card.classList.add('d-none'), 0); // Hide card during drag
+    });
+
+    card.addEventListener('dragend', e => {
+      draggedCard = null;
+      card.classList.remove('d-none'); // Show card after drop
+    });
+  });
+
+  kanbanColumns.forEach(column => {
+    column.addEventListener('dragover', e => {
+      e.preventDefault(); // Allow drop
+      column.classList.add('drag-over');
+    });
+
+    column.addEventListener('dragleave', e => {
+      column.classList.remove('drag-over');
+    });
+
+    column.addEventListener('drop', e => {
+      e.preventDefault();
+      if (draggedCard) {
+        column.appendChild(draggedCard);
+        column.classList.remove('drag-over');
+      }
+    });
+  });
