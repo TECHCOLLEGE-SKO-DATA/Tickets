@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kanbantavle</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/newStyle.css">
 </head>
 <body>
     <nav class="navbar navbar-dark bg-primary navbar-expand-lg bg-body-tertiary">
@@ -70,93 +70,84 @@
         </div>
     </nav>
 
-    <!--Kanban board
-    
-    Ny
-    I gang
-    På hold
-    Lukket
-
-
-    -->
-
     <div class="container py-5">
-        <h1 class="text-center mb-4">Kanban Tavle</h1>
-        <div class="d-flex justify-content-center">
-          <!-- Åben Column -->
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-header bg-primary text-white text-center">
-                <strong>Åben</strong>
+      <h1 class="text-center mb-4">Kanban Tavle</h1>
+      <div class="d-flex justify-content-center">
+        <!-- Åben Column -->
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-header bg-primary text-white text-center">
+              <strong>Åben</strong>
+            </div>
+            <div class="card-body kanban-column" id="open-column">
+              <div class="card kanban-card bg-light p-2" draggable="true">
+                <p class="mb-0">Opgave 1</p>
               </div>
-              <div class="card-body kanban-column" id="open-column">
-                <div class="card kanban-card bg-light p-2">
-                  <p class="mb-0">Opgave 1</p>
-                </div>
-                <div class="card kanban-card bg-light p-2">
-                  <p class="mb-0">Opgave 2</p>
-                </div>
+              <div class="card kanban-card bg-light p-2" draggable="true">
+                <p class="mb-0">Opgave 2</p>
               </div>
             </div>
           </div>
-    
-          <!-- I gang Column -->
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-header bg-primary text-white text-center">
-                <strong>I gang</strong>
-              </div>
-              <div class="card-body kanban-column" id="inprogress-column">
-                <div class="card kanban-card bg-light p-2">
-                  <p class="mb-0">Opgave 3</p>
-                </div>
+        </div>
+  
+        <!-- I gang Column -->
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-header bg-primary text-white text-center">
+              <strong>I gang</strong>
+            </div>
+            <div class="card-body kanban-column" id="inprogress-column">
+              <div class="card kanban-card bg-light p-2" draggable="true">
+                <p class="mb-0">Opgave 3</p>
               </div>
             </div>
           </div>
-    
-          <!-- På hold Column -->
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-header bg-primary text-white text-center">
-                <strong>På hold</strong>
-              </div>
-              <div class="card-body kanban-column" id="hold-column">
-                <div class="card kanban-card bg-light p-2">
-                  <p class="mb-0">Opgave 4</p>
-                </div>
+        </div>
+  
+        <!-- På hold Column -->
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-header bg-primary text-white text-center">
+              <strong>På hold</strong>
+            </div>
+            <div class="card-body kanban-column" id="hold-column">
+              <div class="card kanban-card bg-light p-2" draggable="true">
+                <p class="mb-0">Opgave 4</p>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Lukket Column -->
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-header bg-primary text-white text-center">
-                <strong>Lukket</strong>
-              </div>
-              <div class="card-body kanban-column" id="lukket-column">
-                <div class="card kanban-card bg-light p-2">
-                  <p class="mb-0">Opgave 5</p>
-                </div>
+        <!-- Lukket Column -->
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-header bg-primary text-white text-center">
+              <strong>Lukket</strong>
+            </div>
+            <div class="card-body kanban-column" id="lukket-column">
+              <div class="card kanban-card bg-light p-2" draggable="true">
+                <p class="mb-0">Opgave 5</p>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Udkørsel Column -->
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-header bg-primary text-white text-center">
-                <strong>Udkørsel</strong>
-              </div>
-              <div class="card-body kanban-column" id="udkørsel-column">
-                <div class="card kanban-card bg-light p-2">
-                  <p class="mb-0">Opgave 6</p>
-                </div>
+        <!-- Udkørsel Column -->
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-header bg-primary text-white text-center">
+              <strong>Udkørsel</strong>
+            </div>
+            <div class="card-body kanban-column" id="udkørsel-column">
+              <div class="card kanban-card bg-light p-2" draggable="true">
+                <p class="mb-0">Opgave 6</p>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
     
     <script src="/scripts/bootstrap.bundle.min.js"></script>
+    <script src="/scripts/newCustomScript.js"></script>
 </body>

@@ -471,5 +471,10 @@ main p {
         font-size: 0.8rem;
     }
 }
-
-/* User Page */
+.kanban-column {
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  .kanban-card {
+    margin-bottom: 10px;
+  }
