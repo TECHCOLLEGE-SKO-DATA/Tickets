@@ -485,15 +485,29 @@ main p {
 
 /* Canbanboard */
 .kanban-column {
-    max-height: 500px;
+    max-height: 300px;
     overflow-y: auto;
 }
 
 .kanban-card {
     margin-bottom: 10px;
+    cursor: grab;
+
+}
+
+.btncreateCanban{
+    margin-bottom: 20px;
+}
+
+.card {
+    margin-bottom: 20px;
 }
 
 /* User page */
 .userbutton{
     margin-left: 10px;
+}
+
+.canban-container {
+    display: flex;
 }
