@@ -1,3 +1,12 @@
+:root {
+    /* Canban Cards */
+   --open-bg: #007bff;
+   --in-progress-bg: #ffc107;
+   --on-hold-bg: #17a2b8;
+   --closed-bg: #eb4034;
+   --delivery-bg: #6c757d;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -501,6 +510,32 @@ main p {
 
 .card {
     margin-bottom: 20px;
+}
+
+/* Styling for Kanban kolonne-headers */
+.card-header#open-column {
+    background-color: var(--open-bg);
+    color: white;
+}
+
+.card-header#inprogress-column {
+    background-color: var(--in-progress-bg);
+    color: white;
+}
+
+.card-header#hold-column {
+    background-color: var(--on-hold-bg);
+    color: white;
+}
+
+.card-header#lukket-column {
+    background-color: var(--closed-bg);
+    color: white;
+}
+
+.card-header#udkørsel-column {
+    background-color: var(--delivery-bg);
+    color: white;
 }
 
 /* User page */

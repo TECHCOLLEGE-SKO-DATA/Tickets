@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Kundeoversigt</title>
+    <title>Brugeroversigt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/newStyle.css">
@@ -16,29 +16,36 @@
             <li>
                 <span class="logo">Tickets v0.4</span>
                 <button onclick=toggleSidebar() id="toggle-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
-                        <path d="M383-480 200-664l56-56 240 240-240 240-56-56 183-184Zm264 0L464-664l56-56 240 240-240 240-56-56 183-184Z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#e8eaed">
+                        <path
+                            d="M383-480 200-664l56-56 240 240-240 240-56-56 183-184Zm264 0L464-664l56-56 240 240-240 240-56-56 183-184Z" />
                     </svg>
                 </button>
             </li>
-            <li><a href="index.html"><img src="/Assets/Images/Icons/note_add.svg" /><span>Opret Sag</span></a></li>
+            <li><a href="/Pages/createIncidentPage.html"><img src="/Assets/Images/Icons/note_add.svg" /><span>Opret Sag</span></a></li>
             <li><a class="dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     <img src="/Assets/Images/Icons/bookmark_star.svg"> Sagshåndtering
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="ticket.html"><img src="/Assets/Images/Icons/local_activity_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" /> Tickets</a></li>
-                    <li><a class="dropdown-item" href="canbanboardPage.html"><img src="/Assets/Images/Icons/bar_chart_4.svg" /> Kanbantavle</a></li>
+                    <li><a class="dropdown-item" href="/Pages/ticketsPage.html"><img
+                                src="/Assets/Images/Icons/local_activity_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" />
+                            Tickets</a></li>
+                    <li><a class="dropdown-item" href="/Pages/canbanboardPage.html"><img
+                                src="/Assets/Images/Icons/bar_chart_4.svg" /> Kanbantavle</a></li>
                 </ul>
             </li>
-            <li><a href="customerPage.html"><img src="/Assets/Images/Icons/groups_2.svg" /><span>Kundeoversigt</span></a></li>
-            <li><a href="userPage.html"><img src="/Assets/Images/Icons/adminpanel.svg" /><span>Brugeroversigt</span></a></li>
+            <li><a href="/Pages/customerPage.html"><img
+                        src="/Assets/Images/Icons/groups_2.svg" /><span>Kundeoversigt</span></a></li>
+            <li><a href="/Pages/userPage.html"><img src="/Assets/Images/Icons/adminpanel.svg" /><span>Brugeroversigt</span></a>
+            </li>
             <li><a href="profile.html"><img src="/Assets/Images/Icons/no_crash.svg" /><span>Udkørsel</span></a></li>
             <div class="divider"></div>
             <li>
                 <ul class="settings-menu">
                     <li><a href="#"><img src="/Assets/Images/Icons/manage_accounts.svg" alt=""> Indstillinger</a></li>
-                    <li><a href="#"><img src="/Assets/Images/Icons/logout_24dp.svg" alt=""> Log ud</a></li>
+                    <li><a href="/Pages/loginPage.html"><img src="/Assets/Images/Icons/logout_24dp.svg" alt=""> Log ud</a></li>
                 </ul>
                 <div id="user-profile" class="user-profile">
                     <img src="/Assets/Images/Icons/TechLogo(Lille).jpg" alt="Profile Picture">
@@ -50,6 +57,219 @@
             </li>
         </ul>
     </nav>
+
+
+    <main class="container my-4">
+        <!-- Data  -->
+        <div class="usercontainer d-flex align-items-center">
+            <div class="searchinput">
+                <input type="text" class="form-control" placeholder="Søg" aria-label="Søg" />
+            </div>
+            <div class="userbutton ms-2">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createuserModal">
+                    Opret bruger
+                </button>
+            </div>
+        </div>
+        
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Fornavn</th>
+                        <th scope="col">Efternavn</th>
+                        <th scope="col">Brugernavn</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Telefonnummer</th>
+                        <th scope="col">Rolle</th>
+                        <th scope="col">Handlinger</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Hansen</td>
+                        <td>markhansen123</td>
+                        <td>mark.hansen@gmail.com</td>
+                        <td>12345678</td>
+                        <td>Admin</td>
+                        <td>
+                            <button type="button" class="btn btn-primary btn-sm customBtn" data-bs-toggle="modal"
+                                data-bs-target="#ticketModal">
+                                Rediger
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Christian</td>
+                        <td>Sejr</td>
+                        <td>christiansejr123</td>
+                        <td>christian.sejr@gmail.com</td>
+                        <td>12345678</td>
+                        <td>Admin</td>
+                        <td>
+                            <button type="button" class="btn btn-primary btn-sm customBtn" data-bs-toggle="modal"
+                                data-bs-target="#ticketModal">
+                                Rediger
+                            </button>
+                        </td>
+                    </tr>
+                    <th scope="row">3</th>
+                    <td>Emil</td>
+                    <td>Stabil</td>
+                    <td>emilstabil123</td>
+                    <td>emil.stabil@gmail.com</td>
+                    <td>12345678</td>
+                    <td>Admin</td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-sm customBtn" data-bs-toggle="modal"
+                            data-bs-target="#ticketModal">
+                            Rediger
+                        </button>
+                    </td>
+                    </tr>
+                    <th scope="row">4</th>
+                    <td>Mark</td>
+                    <td>Hansen</td>
+                    <td>markhansen123</td>
+                    <td>mark.hansen@gmail.com</td>
+                    <td>12345678</td>
+                    <td>Admin</td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-sm customBtn" data-bs-toggle="modal"
+                            data-bs-target="#ticketModal">
+                            Rediger
+                        </button>
+                    </td>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>Andreas</td>
+                        <td>Krappe</td>
+                        <td>andreaskrappe123</td>
+                        <td>andreas.krappe@gmail.com</td>
+                        <td>12345678</td>
+                        <td>Admin</td>
+                        <td>
+                            <button type="button" class="btn btn-primary btn-sm customBtn" data-bs-toggle="modal"
+                                data-bs-target="#ticketModal">
+                                Rediger
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="userModalLabel">Rediger Bruger</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Luk"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editUserForm">
+                        <div class="mb-3">
+                            <label for="modalUserNumber" class="form-label">BrugerNummer</label>
+                            <input type="text" class="form-control" id="modalUserNumber" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalUserfornavn" class="form-label">fornavn</label>
+                            <input type="text" class="form-control" id="modalUserfornavn">
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalUserefternavn" class="form-label">efternavn</label>
+                            <input type="text" class="form-control" id="modalUserefternavn">
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalUserUsername" class="form-label">Brugernavn</label>
+                            <input type="email" class="form-control" id="modalUserUsername">
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalUserEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="modalUserEmail">
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalUserPhoneNumber" class="form-label">Telefonnummer</label>
+                            <input type="text" class="form-control" id="modalUserPhoneNumber">
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalUserRole" class="form-label">Rolle</label>
+                            <select class="form-select" id="modalUserRole">
+                                <option value="Admin">Admin</option>
+                                <option value="Rolle1">Rolle1</option>
+                                <option value="Rolle2">Rolle2</option>
+                                <option value="Rolle3">Rolle3</option>
+                            </select>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuller</button>
+                    <button type="button" class="btn btn-primary" id="saveTicketBtn">Gem ændringer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--asdasd-->
+    <div class="modal fade" id="createuserModal" tabindex="-1" aria-labelledby="createuserModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createuserModalLabel">Opret bruger</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="modalUserfornavn" class="form-label">Fornavn</label>
+                        <input type="text" class="form-control" id="modalUserfornavn">
+                    </div>
+                    <div class="mb-3">
+                        <label for="modalUserefternavn" class="form-label">Efternavn</label>
+                        <input type="text" class="form-control" id="modalUserefternavn">
+                    </div>
+                    <div class="mb-3">
+                        <label for="modalUserUsername" class="form-label">Brugernavn</label>
+                        <input type="email" class="form-control" id="modalUserUsername">
+                    </div>
+                    <div class="mb-3">
+                        <label for="modalUserPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="modalUserPassword">
+                    </div>
+                    <div class="mb-3">
+                        <label for="modalUserEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="modalUserEmail">
+                    </div>
+                    <div class="mb-3">
+                        <label for="modalUserPhoneNumber" class="form-label">Telefonnummer</label>
+                        <input type="text" class="form-control" id="modalUserPhoneNumber">
+                    </div>
+                    <div class="mb-3">
+                        <label for="modalUserRole" class="form-label">Rolle</label>
+                        <select class="form-select" id="modalUserRole">
+                            <option value="Admin">Admin</option>
+                            <option value="Rolle1">Rolle1</option>
+                            <option value="Rolle2">Rolle2</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Luk</button>
+                    <button type="button" class="btn btn-primary">Tilføj</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="/scripts/bootstrap.bundle.min.js"></script>
     <script src="/scripts/newCustomScript.js"></script>
