@@ -429,3 +429,122 @@ main p {
     display: flex;
 }
 
+.container-drive {
+    width: 70%;
+    height: auto;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: auto;
+}
+
+/* Kalenderens layout */
+.calendar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Header med kun 5 dage */
+.calendar-header {
+    display: grid;
+    grid-template-columns: 100px repeat(5, 1fr);
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Celler er lidt mindre */
+.calendar-body {
+    display: grid;
+    grid-template-columns: 100px repeat(5, 1fr);
+    grid-auto-rows: minmax(60px, auto);
+}
+
+/* Tidsceller */
+.time-slot {
+    background-color: #e9ecef;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Udkørsler */
+.event {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* Ansvarlig person */
+.responsible {
+    font-size: 12px;
+    color: #333;
+    margin-top: 5px;
+}
+
+/* Tomme celler */
+.empty {
+    border: 1px solid #ddd;
+    background-color: white;
+}
+
+/* Liste over ansvarlige personer */
+.responsible-list {
+    margin-top: 20px;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.responsible-list h3 {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.responsible-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.responsible-list ul li {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/* Styling for knappen */
+.collapse-btn {
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    border-radius: 5px;
+}

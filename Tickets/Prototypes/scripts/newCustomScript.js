@@ -181,3 +181,8 @@ document.querySelectorAll('table tbody tr').forEach(row => {
       }
     });
   });
+  
+  function toggleResponsibleList() {
+    var list = document.getElementById("responsible-list");
+    list.classList.toggle("collapse");
+}
