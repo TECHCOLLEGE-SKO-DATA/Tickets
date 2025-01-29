@@ -12,37 +12,46 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Sidebar stuff
-const toggleButton = document.getElementById('toggle-btn')
-const sidebar = document.getElementById('sidebar')
-
+const toggleButton = document.getElementById('toggle-btn');
+const sidebar = document.getElementById('sidebar');
 
 function toggleSidebar() {
   sidebar.classList.toggle('closed');
   toggleButton.classList.toggle('rotate');
-  closeAllSubMenus();
-}
 
-function toggleSubMenu(button){
-
-  if(!button.nextElementSibling.classList.contains('show')){
-    closeAllSubMenus()
-  }
-
-  button.nextElementSibling.classList.toggle('show')
-  button.classList.toggle('rotate')
-
-  if(sidebar.classList.contains('close')){
-    sidebar.classList.toggle('close')
-    toggleButton.classList.toggle('rotate')
+  if (sidebar.classList.contains('closed')) {
+    closeAllSubMenus();
   }
 }
 
-function closeAllSubMenus(){
-  Array.from(sidebar.getElementsByClassName('show')).forEach(ul => {
-    ul.classList.remove('show')
-    ul.previousElementSibling.classList.remove('rotate')
-  })
+function toggleSubMenu(event, button) {
+  event.preventDefault(); 
+
+  const subMenu = button.nextElementSibling;
+
+
+  if (sidebar.classList.contains('closed')) {
+    sidebar.classList.remove('closed');
+    toggleButton.classList.remove('rotate'); 
+  }
+
+
+  if (!subMenu.classList.contains('show')) {
+    closeAllSubMenus();
+  }
+
+  subMenu.classList.toggle('show');
+  button.classList.toggle('rotate');
 }
+
+function closeAllSubMenus() {
+  document.querySelectorAll('.dropdown-menu.show').forEach(ul => {
+    ul.classList.remove('show');
+    ul.previousElementSibling.classList.remove('rotate');
+  });
+}
+
+
 
 // Funktion til at fjerne backdrop manuelt når du lukker den igen. 
 function removeBackdrops() {
@@ -172,3 +181,8 @@ document.querySelectorAll('table tbody tr').forEach(row => {
       }
     });
   });
+  
+  function toggleResponsibleList() {
+    var list = document.getElementById("responsible-list");
+    list.classList.toggle("collapse");
+}
