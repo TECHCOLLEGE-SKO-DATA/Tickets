@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/loginStyle.css">
+</head>
+<body>
+  <div class="login-wrapper">
+    <div class="login-container">
+      <!-- Venstre sektion -->
+      <div class="login-left d-flex flex-column justify-content-center align-items-center bg-primary">
+        <img src="/Assets/Images/techcollege-transparent-logo-hvid.png" alt="Velkomstbillede" class="welcome-image">
+      </div>
+
+      <!-- Højre sektion -->
+      <div class="login-right">
+        <h2>Log ind - PC Hjælp</h2>
+        <form>
+          <div class="input-group mb-3">
+            <span class="input-group-text"><i class="fas fa-user"></i></span> 
+            <input type="text" class="form-control" placeholder="Brugernavn" required>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text"><i class="fas fa-key"></i></span> 
+            <input type="password" class="form-control" placeholder="Adgangskode" required>
+          </div>
+          <div class="form-options d-flex justify-content-between align-items-center">
+            <label>
+              <input type="checkbox"> Husk mig
+            </label>
+            <a href="#">Glemt adgangskode?</a>
+          </div>
+          <a type="submit" class="btn btn-primary w-100" role="button" href="index.html">Log ind</a>
+          <button id="loginBtnMicrosoft" class="btn btn-primary w-100 mt-3"><i class="fab fa-microsoft"></i> TECHCOLLEGE</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://kit.fontawesome.com/b7ba1bc228.js" crossorigin="anonymous"></script>
+</body>
+</html>
