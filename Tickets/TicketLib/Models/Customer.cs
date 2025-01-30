@@ -1,6 +1,6 @@
-namespace TicketLib;
+namespace TicketLib.Models;
 
-public class Customer 
+public class Customer : Person
 {
     public int PersonId { get; set; } //(PK, FK)
 }
