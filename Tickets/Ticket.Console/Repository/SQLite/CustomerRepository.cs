@@ -1,15 +1,16 @@
 using TicketLib.Repository;
 using TicketLib.Models;
 using System.Data.SQLite;
+using System.Data.Common;
 
 namespace Ticket.Console.Repository.SQLite;
 
 class CustomerRepository : IRepository<Customer>
 {
-    SQLiteConnection _conn;
-    public CustomerRepository(SQLiteConnection conn) 
+    ConnectionHelper _connectionHelper;
+    public CustomerRepository(ConnectionHelper connectionHelper) 
     {
-        _conn = new();
+        _connectionHelper = connectionHelper;
     }
 
     public IEnumerable<Customer> GetAll() 
@@ -24,11 +25,14 @@ class CustomerRepository : IRepository<Customer>
     }
     public void Add(Customer model)
     {
-        _conn.Open();
-        SQLiteCommand command = _conn.CreateCommand();
-        command.CommandText = "INSERT INTO customer (firstname) VALUES (@firstname)";
-        command.Parameters.AddWithValue("@firstname", model.Firstname);
-        command.ExecuteNonQuery();
+        using (DbConnection conn = _connectionHelper.GetConnection()) 
+        {
+            DbCommand command = conn.CreateCommand();
+            command.CommandText = "INSERT INTO customer (firstname) VALUES (@firstname)";
+            command.Parameters.Add("@firstname", DbType.VarChar, 30).Value = model.Firstname;
+            command.ExecuteNonQuery();
+        }
+        
         //INSERT INTO customer () VALUES ();
     }
     public void Update(Customer model) 
