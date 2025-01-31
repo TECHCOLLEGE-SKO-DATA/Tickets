@@ -503,7 +503,6 @@ main p {
 .responsible {
     font-size: 12px;
     color: #333;
-    margin-top: 5px;
 }
 
 /* Tomme celler */
@@ -547,4 +546,8 @@ main p {
     width: 100%;
     text-align: left;
     border-radius: 5px;
+}
+.ticket {
+    font-size: 12px;
+    color: #333;
 }
