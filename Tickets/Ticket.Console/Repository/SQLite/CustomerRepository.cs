@@ -7,8 +7,8 @@ namespace Ticket.Console.Repository.SQLite;
 
 class CustomerRepository : IRepository<Customer>
 {
-    ConnectionHelper _connectionHelper;
-    public CustomerRepository(ConnectionHelper connectionHelper) 
+    SQLiteConnectionHelper _connectionHelper;
+    public CustomerRepository(SQLiteConnectionHelper connectionHelper) 
     {
         _connectionHelper = connectionHelper;
     }
@@ -20,27 +20,45 @@ class CustomerRepository : IRepository<Customer>
     }
     public Customer GetById(int id) 
     {
+        using (SQLiteConnection conn = _connectionHelper.GetConnection()) 
+        {
+            SQLiteCommand command = conn.CreateCommand();
+            command.CommandText = "SELECT * FROM model WHERE @id";
+            command.Parameters.AddWithValue("@id", id);
+            command.ExecuteNonQuery();
+        }
         //SELECT * FROM customer WHERR customerId = id
         return null;
     }
     public void Add(Customer model)
     {
-        using (DbConnection conn = _connectionHelper.GetConnection()) 
+        using (SQLiteConnection conn = _connectionHelper.GetConnection()) 
         {
-            DbCommand command = conn.CreateCommand();
+            SQLiteCommand command = conn.CreateCommand();
             command.CommandText = "INSERT INTO customer (firstname) VALUES (@firstname)";
-            command.Parameters.Add("@firstname", DbType.VarChar, 30).Value = model.Firstname;
+            command.Parameters.AddWithValue("@firstname", model.Firstname);
             command.ExecuteNonQuery();
         }
         
-        //INSERT INTO customer () VALUES ();
     }
     public void Update(Customer model) 
     {
-        SQLiteCommand command = _conn.CreateCommand();
+        using (SQLiteConnection conn = _connectionHelper.GetConnection() as SQLiteConnection) 
+        {
+            SQLiteCommand command = conn.CreateCommand();
+            command.CommandText = "UPDATE customer SET ... WHERE ...";
+            command.Parameters.AddWithValue("@firstname", model.Firstname);
+            command.ExecuteNonQuery();
+        }
     }
     public void Delete(int id) 
     {
-
+        using (SQLiteConnection conn = _connectionHelper.GetConnection() as SQLiteConnection) 
+        {
+            SQLiteCommand command = conn.CreateCommand();
+            command.CommandText = "DELETE FROM ....";
+            command.Parameters.AddWithValue("@id", id);
+            command.ExecuteNonQuery();
+        }
     }
 }
