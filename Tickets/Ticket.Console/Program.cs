@@ -3,6 +3,9 @@
 using System.Data.SQLite;
 using TicketLib.Models;
 using Ticket.Console.Repository.SQLite;
+using Ticket.Console.Screens;
+using Ticket.Console.Platform;
+using TECHCOOL.UI;
 
 // var connection_string = "Data Source=:memory";
 // using (var conn = new SQLiteConnection(connection_string))
@@ -14,5 +17,6 @@ using Ticket.Console.Repository.SQLite;
 //CustomerRepository repo = new(new ConnectionHelper<SQLiteConnection>("test.db"));
 //repo.Add(new Customer() { Firstname = "Konrad"});
 
-
-Console.WriteLine("Hello, World!");
+ConsolePlatform platform = new("Data Source=:memory:");
+MainScreen screen = new(platform);
+Screen.Display(screen);

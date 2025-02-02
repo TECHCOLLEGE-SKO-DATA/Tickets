@@ -1,7 +1,7 @@
 using System.Data.Common;
 namespace TicketLib.Repository;
 
-public class ConnectionHelper<T> where T : DbConnection, new()
+public class ConnectionHelper<T> : IConnectionHelper<T> where T : DbConnection, new()
 {
     string _connectionString = "";
     T? connection = null;
