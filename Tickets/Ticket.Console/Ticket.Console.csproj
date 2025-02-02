@@ -17,6 +17,7 @@
   <ItemGroup>
     <PackageReference Include="SQLitePCLRaw.core" Version="2.1.11-pre20241216174303" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.119" />
+    <PackageReference Include="TECHCOOL" Version="1.4.1" />
   </ItemGroup>
 
 </Project>
