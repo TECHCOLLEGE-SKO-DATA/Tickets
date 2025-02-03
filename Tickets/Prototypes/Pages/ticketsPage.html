@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/newStyle.css">
+</head>
+
+<body>
+    <nav class="bg-primary" id="sidebar">
+        <ul>
+            <li>
+                <span class="logo">Tickets v0.4</span>
+                <button class="customSidenavBtn-oc" onclick="toggleSidebar()" id="toggle-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                        <path d="M383-480 200-664l56-56 240 240-240 240-56-56 183-184Zm264 0L464-664l56-56 240 240-240 240-56-56 183-184Z"/>
+                    </svg>
+                </button>
+            </li>
+            <li>
+                <button class="customSidenavBtn" onclick="location.href='/Pages/createIncidentPage.html'">
+                    <img class="customIcon_Sidenav" src="/Assets/Images/Icons/note_add.svg" />
+                    <span>Opret Sag</span>
+                </button>
+            </li>
+            <li class="dropdown">
+                <button onclick="toggleSubMenu(event, this)" class="custom-dropdown-toggle customSidenavBtn">
+                    <img class="customIcon_Sidenav" src="/Assets/Images/Icons/bookmark_star.svg">
+                    <span class="menu-text">Sagshåndtering</span>
+                    <span class="dropdown-arrow">▼</span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <button onclick="location.href='/Pages/ticketsPage.html'" class="dropdown-item">
+                            <img class="customIcon_Sidenav" src="/Assets/Images/Icons/local_activity_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg">
+                            <span class="menu-text">Tickets</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="location.href='/Pages/canbanboardPage.html'" class="dropdown-item">
+                            <img class="customIcon_Sidenav" src="/Assets/Images/Icons/bar_chart_4.svg">
+                            <span class="menu-text">Kanbantavle</span>
+                        </button>
+                    </li>
+                </ul>
+            </li>
+            <div class="divider"></div>
+            <li>
+                <li>
+                    <button class="customSidenavBtn" onclick="location.href='/Pages/userPage.html'">
+                        <img class="customIcon_Sidenav" src="/Assets/Images/Icons/adminpanel.svg" />
+                        <span>Brugeroversigt</span>
+                    </button>
+                </li>
+                <button class="customSidenavBtn" onclick="location.href='/Pages/customerPage.html'">
+                    <img class="customIcon_Sidenav" src="/Assets/Images/Icons/groups_2.svg" />
+                    <span>Kundeoversigt</span>
+                </button>
+            </li>
+            <div class="divider"></div>
+            <li>
+                <button class="customSidenavBtn" onclick="location.href='/Pages/schedule.html'">
+                    <img class="customIcon_Sidenav" src="/Assets/Images/Icons/badge_24d.svg" />
+                    <span>Vagtplan</span>
+                </button>
+            </li>
+            <li>
+                <button class="customSidenavBtn" onclick="location.href='/Pages/drivingServicePage.html'">
+                    <img class="customIcon_Sidenav" src="/Assets/Images/Icons/no_crash.svg" />
+                    <span>Udkørsel</span>
+                </button>
+            </li>
+            <div class="divider"></div>
+            <ul class="bg-primary" id="settings-menu">
+                <li>
+                    <button class="customSidenavBtn">
+                        <img class="customIcon_Sidenav" src="/Assets/Images/Icons/manage_accounts.svg" alt="">
+                        <span>Indstillinger</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="customSidenavBtn" onclick="location.href='/Pages/loginPage.html'">
+                        <img class="customIcon_Sidenav" src="/Assets/Images/Icons/logout_24dp.svg" alt="">
+                        <span>Log ud</span>
+                    </button>
+                </li>
+            </ul>
+            <div id="user-profile" class="user-profile">
+                <img src="/Assets/Images/Icons/TechLogo(Lille).jpg" alt="Profile Picture">
+                <div class="user-info">
+                    <p>Admin</p>
+                    <p>ticketAdmin@techcollege.dk</p>
+                </div>
+            </div>
+        </ul>
+    </nav>
+
+    <main class="container my-4">
+        <!-- Data  -->
+        <div class="usercontainer d-flex align-items-center">
+            <div class="searchinput">
+                <input type="text" class="form-control" placeholder="Søg" aria-label="Søg" />
+            </div>
+        </div>
+
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Kundenavn</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Titel</th>
+                        <th scope="col">Beskrivelse</th>
+                        <th scope="col">Udkørsel</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Oprettet</th>
+                        <th scope="col">Handlinger</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">1</td>
+                        <td>Mark Hansen</td>
+                        <td>mark.hansen@gmail.com</td>
+                        <td>Hjælp til HP-Printer</td>
+                        <td>Der er problemer med printerens forbindelse til netværket.</td>
+                        <td>16/01/2025 - 10:30</td>
+                        <td>Åben</td>
+                        <td>2025-01-14 10:30</td>
+                        <td>
+                            <button type="button" class="btn btn-primary btn-sm customBtn" data-bs-toggle="modal"
+                                data-bs-target="#ticketModal">
+                                Rediger
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="ticketModal" tabindex="-1" aria-labelledby="ticketModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ticketModalLabel">Rediger Ticket</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="editTicketForm">
+                        <div class="mb-3">
+                            <label for="modalTicketNumber" class="form-label">Ticket Nummer</label>
+                            <input type="text" class="form-control" id="modalTicketNumber" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalTicketCustomerName" class="form-label">Kundenavn</label>
+                            <input type="text" class="form-control" id="modalTicketCustomerName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalTicketEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="modalTicketEmail">
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalTicketTitle" class="form-label">Titel</label>
+                            <input type="text" class="form-control" id="modalTicketTitle">
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalTicketDescription" class="form-label">Beskrivelse</label>
+                            <textarea class="form-control" id="modalTicketDescription"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalTicketCustomerName" class="form-label">Udkørsel</label>
+                            <input type="text" class="form-control mb-4" id="modalTicketDrive" placeholder="By">
+                            <input type="text" class="form-control mb-4" id="modalTicketDrive" placeholder="Adresse">
+                            <input type="text" class="form-control mb-4" id="modalTicketDrive"
+                                placeholder="Vejnavn / Etage">
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalTicketStatus" class="form-label">Status</label>
+                            <select class="form-select" id="modalTicketStatus">
+                                <option value="Åben">Åben</option>
+                                <option value="I gang">I gang</option>
+                                <option value="På hold">På hold</option>
+                                <option value="Lukket">Lukket</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalTicketCreated" class="form-label">Oprettet</label>
+                            <input type="text" class="form-control" id="modalTicketCreated" readonly="true">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuller</button>
+                    <button type="button" class="btn btn-primary" id="saveTicketBtn">Gem ændringer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/scripts/bootstrap.bundle.min.js"></script>
+    <script src="/scripts/newCustomScript.js"></script>
+</body>
+
+</html>

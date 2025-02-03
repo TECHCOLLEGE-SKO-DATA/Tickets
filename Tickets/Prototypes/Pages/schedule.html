@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="da">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Opret Sag Page</title>
-    <script src="/scripts/bootstrap.bundle.min.js"></script>
+    <title>Ugeskema</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/newStyle.css">
-</head>
 
 <body>
+    <!-- Sidebar Navigation -->
     <nav class="bg-primary" id="sidebar">
         <ul>
             <li>
@@ -99,85 +98,63 @@
             </div>
         </ul>
     </nav>
-    <!-- Container for indhold, som skal flytte sig baseret på sidebarens tilstand -->
-    <main>
-        <div class="row">
-            <!-- Kunde Oplysninger Kolonne -->
-            <div class="col-md-6 border KundeOplysninger">
-                <p>Kundens Fornavn og Efternavn</p>
-                <div class="input-group mb-4">
-                    <input type="text" placeholder="Fornavn" class="form-control">
-                    <input type="text" placeholder="Efternavn" class="form-control">
-                </div>
-                Kundens Telefonnummer
-                <div class="input-group mb-4">
-                    <span class="input-group-text landekode">+45</span>
-                    <input type="text" class="form-control" placeholder="Kundens Tlf Nummer">
-                </div>
-                Kundens Mailaddresse
-                <div class="input-group mb-4">
-                    <input type="text" class="form-control" placeholder="Kundens Mailaddresse">
-                </div>
-                Kundens Addresse
-                <div class="input-group mb-4">
-                    <input type="text" class="form-control" placeholder="Kundens Addresse">
-                </div>
-                Vejnummer
-                <div class="mb-4">
-                    <input type="text" class="form-control" placeholder="Vejnummer">
-                </div>
-                By/Postnummer
-                <div class="input-group mb-4">
-                    <input type="text" placeholder="By" class="form-control">
-                    <input type="text" placeholder="Postnummer" class="form-control">
-                </div>
 
-                <hr>
+    <div class="container">
+        <h2 class="text-center">PC-Hjælp Ugeskema</h2>
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <!-- Help Button -->
-                        <button class="btn btn-primary customHelpButton" type="button" data-bs-toggle="collapse"
-                            data-bs-target=".collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                            Brug for hjælp?
-                        </button>
-                        <div class="collapse customHelpBox collapseExample">
-                            <div class="card card-body">
-                                <ul>
-                                    <li>Spørg og notere kundens personlige oplysninger i de tilhørende felter</li>
-                                    <li>Notér hvad kunden har problemer med? Ex. Printer, PC osv.</li>
-                                    <li>Find ud af modellen det drejer sig om, hvis det er hardware? Ex. en Iphone 7, en
-                                        Acer
-                                        Aspire 7 bærbar</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="d-flex justify-content-between mb-3">
+            <button class="btn btn-primary">Forrige uge</button>
+            <h4 id="weekLabel"></h4>
+            <button class="btn btn-primary">Næste uge</button>
+        </div>
 
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Dag</th>
+                    <th>Dato</th>
+                    <th>Person 1</th>
+                    <th>Person 2</th>
+                </tr>
+            </thead>
+            <tbody id="scheduleTable">
+                <tr>
+                    <td scope="row">Mandag</td>
+                        <td>03-02-2025</td>
+                        <td>Mads</td>
+                        <td>Mark</td>
+                </tr>
+                <tr>
+                    <td scope="row">Tirsdag</td>
+                        <td>04-02-2025</td>
+                        <td>Mads</td>
+                        <td>Mark</td>
+                </tr>
+                <tr>
+                    <td scope="row">Onsdag</td>
+                        <td>05-02-2025</td>
+                        <td>Mads</td>
+                        <td>Mark</td>
+                </tr>
+                <tr>
+                    <td scope="row">Torsdag</td>
+                        <td>06-02-2025</td>
+                        <td>Mads</td>
+                        <td>Mark</td>
+                </tr>
+                <tr>
+                    <td scope="row">Fredag</td>
+                        <td>07-02-2025</td>
+                        <td>Mads</td>
+                        <td>Mark</td>
+                </tr>
 
+            </tbody>
+        </table>
+    </div>
 
-            <!-- Kolonne med Sagsbeskrivelse og Sags Historik -->
-            <div class="col-md-6 SagsBeskrivelseOplysninger">
-                <div class="d-flex flex-column gap-4">
-                    <!-- SagsBeskrivelseBox -->
-                    <div class="border p-3 SagsBeskrivelseBox">
-                        <h5>Sags Beskrivelse</h5>
-                        <textarea class="form-control" rows="5"
-                            placeholder="Indtast sags beskrivelse her..."></textarea>
-                    </div>
-                    <form class="d-flex justify-content-end" style="gap: 8px">
-                        <button class="btn btn-success" type="submit">Gem</button>
-                        <button class="btn btn-danger" type="submit">Ryd</button>
-                    </form>
-                    <!-- SagsHistorikBox -->
-                    <div class="border p-3 SagsHistorikBox">
-                        <h5>Sags Historik</h5>
-                    </div>
-                </div>
-            </div>
-            <script src="/scripts/newCustomScript.js"></script>
-    </main>
-
+    <script src="/scripts/bootstrap.bundle.min.js"></script>
+    <script src="/scripts/newCustomScript.js"></script>
 </body>
+
+</html>
