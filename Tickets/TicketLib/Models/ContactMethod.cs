@@ -1,4 +1,4 @@
-namespace TicketLib;
+namespace TicketLib.Models;
 
 public class ContactMethod 
 {

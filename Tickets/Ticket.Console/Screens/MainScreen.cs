@@ -1,0 +1,23 @@
+using TECHCOOL.UI;
+using TicketLib.Platform;
+
+namespace Ticket.Console.Screens;
+
+public class MainScreen : TicketScreen
+{
+    public override string Title { get; set; } = "Tickets";
+
+    public MainScreen(IPlatform platform) : base(platform)
+    {
+
+    }
+
+    protected override void Draw()
+    {
+        Menu menu = new Menu();
+        menu.Add( new EditPersonScreen(_platform) );
+        menu.Add( new EditPersonScreen(_platform) );
+
+        menu.Draw();
+    }
+}
