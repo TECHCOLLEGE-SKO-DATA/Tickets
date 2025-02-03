@@ -1,48 +1,57 @@
-// Sidebar stuff
-const toggleButton = document.getElementById('toggle-btn')
-const sidebar = document.getElementById('sidebar')
+// Filter søgning - Under Ticket Status.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelector('.searchinput input').addEventListener('input', function () {
+    const searchValue = this.value.toLowerCase();
+    const rows = document.querySelectorAll('tbody tr');
 
+    rows.forEach(row => {
+      const rowText = row.textContent.toLowerCase();
+      row.style.display = rowText.includes(searchValue) ? '' : 'none';
+    });
+  });
+});
+
+// Sidebar stuff
+const toggleButton = document.getElementById('toggle-btn');
+const sidebar = document.getElementById('sidebar');
 
 function toggleSidebar() {
   sidebar.classList.toggle('closed');
   toggleButton.classList.toggle('rotate');
-  closeAllSubMenus();
-}
 
-function toggleSubMenu(button){
-
-  if(!button.nextElementSibling.classList.contains('show')){
-    closeAllSubMenus()
-  }
-
-  button.nextElementSibling.classList.toggle('show')
-  button.classList.toggle('rotate')
-
-  if(sidebar.classList.contains('close')){
-    sidebar.classList.toggle('close')
-    toggleButton.classList.toggle('rotate')
+  if (sidebar.classList.contains('closed')) {
+    closeAllSubMenus();
   }
 }
 
-function closeAllSubMenus(){
-  Array.from(sidebar.getElementsByClassName('show')).forEach(ul => {
-    ul.classList.remove('show')
-    ul.previousElementSibling.classList.remove('rotate')
-  })
+function toggleSubMenu(event, button) {
+  event.preventDefault(); 
+
+  const subMenu = button.nextElementSibling;
+
+
+  if (sidebar.classList.contains('closed')) {
+    sidebar.classList.remove('closed');
+    toggleButton.classList.remove('rotate'); 
+  }
+
+
+  if (!subMenu.classList.contains('show')) {
+    closeAllSubMenus();
+  }
+
+  subMenu.classList.toggle('show');
+  button.classList.toggle('rotate');
 }
 
-// Filter søgning - Under Ticket Status.
-document.addEventListener('DOMContentLoaded', function () {
-    document.querySelector('#searchinput input').addEventListener('input', function () {
-      const searchValue = this.value.toLowerCase();
-      const rows = document.querySelectorAll('tbody tr');
-  
-      rows.forEach(row => {
-        const rowText = row.textContent.toLowerCase();
-        row.style.display = rowText.includes(searchValue) ? '' : 'none';
-      });
-    });
+function closeAllSubMenus() {
+  document.querySelectorAll('.dropdown-menu.show').forEach(ul => {
+    ul.classList.remove('show');
+    ul.previousElementSibling.classList.remove('rotate');
   });
+}
+
+
 
 // Funktion til at fjerne backdrop manuelt når du lukker den igen. 
 function removeBackdrops() {
@@ -136,3 +145,67 @@ document.querySelectorAll('table tbody tr').forEach(row => {
       document.getElementById('userModal').addEventListener('hidden.bs.modal', removeBackdrops);
     });
   });
+  
+  const kanbanCards = document.querySelectorAll('.kanban-card');
+  const kanbanColumns = document.querySelectorAll('.kanban-column');
+
+  let draggedCard = null;
+
+  kanbanCards.forEach(card => {
+    card.addEventListener('dragstart', e => {
+      draggedCard = card;
+      setTimeout(() => card.classList.add('d-none'), 0); // Hide card during drag
+    });
+
+    card.addEventListener('dragend', e => {
+      draggedCard = null;
+      card.classList.remove('d-none'); // Show card after drop
+    });
+  });
+
+  kanbanColumns.forEach(column => {
+    column.addEventListener('dragover', e => {
+      e.preventDefault(); // Allow drop
+      column.classList.add('drag-over');
+    });
+
+    column.addEventListener('dragleave', e => {
+      column.classList.remove('drag-over');
+    });
+
+    column.addEventListener('drop', e => {
+      e.preventDefault();
+      if (draggedCard) {
+        column.appendChild(draggedCard);
+        column.classList.remove('drag-over');
+      }
+    });
+  });
+  
+  function toggleResponsibleList() {
+    var list = document.getElementById("responsible-list");
+    list.classList.toggle("collapse");
+}
+
+//Klik-funktion for udkørsels page
+function openEventModal(eventElement) {
+  const title = eventElement.getAttribute("data-title");
+  const description = eventElement.getAttribute("data-description");
+  const time = eventElement.getAttribute("data-time");
+  const responsible = eventElement.getAttribute("data-responsible");
+  const ticket = eventElement.getAttribute("data-ticket");
+  const name = eventElement.getAttribute("data-name");
+  const address = eventElement.getAttribute("data-address");
+
+  document.getElementById("modalEventTitle").innerText = title;
+  document.getElementById("modalEventDescription").innerText = description;
+  document.getElementById("modalEventTime").innerText = time;
+  document.getElementById("modalEventResponsible").innerText = responsible;
+  document.getElementById("modalEventTicket").innerText = ticket;
+  document.getElementById("modalEventName").innerText = name;
+  document.getElementById("modalEventAddress").innerText = address;
+
+  const eventModal = new bootstrap.Modal(document.getElementById("eventModal"));
+  eventModal.show();
+}
+
