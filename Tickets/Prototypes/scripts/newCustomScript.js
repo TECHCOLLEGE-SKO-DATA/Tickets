@@ -186,3 +186,26 @@ document.querySelectorAll('table tbody tr').forEach(row => {
     var list = document.getElementById("responsible-list");
     list.classList.toggle("collapse");
 }
+
+//Klik-funktion for udkørsels page
+function openEventModal(eventElement) {
+  const title = eventElement.getAttribute("data-title");
+  const description = eventElement.getAttribute("data-description");
+  const time = eventElement.getAttribute("data-time");
+  const responsible = eventElement.getAttribute("data-responsible");
+  const ticket = eventElement.getAttribute("data-ticket");
+  const name = eventElement.getAttribute("data-name");
+  const address = eventElement.getAttribute("data-address");
+
+  document.getElementById("modalEventTitle").innerText = title;
+  document.getElementById("modalEventDescription").innerText = description;
+  document.getElementById("modalEventTime").innerText = time;
+  document.getElementById("modalEventResponsible").innerText = responsible;
+  document.getElementById("modalEventTicket").innerText = ticket;
+  document.getElementById("modalEventName").innerText = name;
+  document.getElementById("modalEventAddress").innerText = address;
+
+  const eventModal = new bootstrap.Modal(document.getElementById("eventModal"));
+  eventModal.show();
+}
+

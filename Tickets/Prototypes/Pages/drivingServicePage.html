@@ -16,8 +16,10 @@
             <li>
                 <span class="logo">Tickets v0.4</span>
                 <button class="customSidenavBtn-oc" onclick="toggleSidebar()" id="toggle-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
-                        <path d="M383-480 200-664l56-56 240 240-240 240-56-56 183-184Zm264 0L464-664l56-56 240 240-240 240-56-56 183-184Z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#e8eaed">
+                        <path
+                            d="M383-480 200-664l56-56 240 240-240 240-56-56 183-184Zm264 0L464-664l56-56 240 240-240 240-56-56 183-184Z" />
                     </svg>
                 </button>
             </li>
@@ -36,7 +38,8 @@
                 <ul class="dropdown-menu">
                     <li>
                         <button onclick="location.href='/Pages/ticketsPage.html'" class="dropdown-item">
-                            <img class="customIcon_Sidenav" src="/Assets/Images/Icons/local_activity_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg">
+                            <img class="customIcon_Sidenav"
+                                src="/Assets/Images/Icons/local_activity_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg">
                             <span class="menu-text">Tickets</span>
                         </button>
                     </li>
@@ -50,16 +53,16 @@
             </li>
             <div class="divider"></div>
             <li>
-                <li>
-                    <button class="customSidenavBtn" onclick="location.href='/Pages/userPage.html'">
-                        <img class="customIcon_Sidenav" src="/Assets/Images/Icons/adminpanel.svg" />
-                        <span>Brugeroversigt</span>
-                    </button>
-                </li>
-                <button class="customSidenavBtn" onclick="location.href='/Pages/customerPage.html'">
-                    <img class="customIcon_Sidenav" src="/Assets/Images/Icons/groups_2.svg" />
-                    <span>Kundeoversigt</span>
+            <li>
+                <button class="customSidenavBtn" onclick="location.href='/Pages/userPage.html'">
+                    <img class="customIcon_Sidenav" src="/Assets/Images/Icons/adminpanel.svg" />
+                    <span>Brugeroversigt</span>
                 </button>
+            </li>
+            <button class="customSidenavBtn" onclick="location.href='/Pages/customerPage.html'">
+                <img class="customIcon_Sidenav" src="/Assets/Images/Icons/groups_2.svg" />
+                <span>Kundeoversigt</span>
+            </button>
             </li>
             <div class="divider"></div>
             <li>
@@ -83,7 +86,7 @@
                     </button>
                 </li>
                 <li>
-                    <button class="customSidenavBtn">
+                    <button class="customSidenavBtn" onclick="location.href='/Pages/loginPage.html'">
                         <img class="customIcon_Sidenav" src="/Assets/Images/Icons/logout_24dp.svg" alt="">
                         <span>Log ud</span>
                     </button>
@@ -100,52 +103,53 @@
     </nav>
     <div class="container-drive">
         <h2>Udkørselsoversigt</h2>
-    
-        <!-- Kalender -->
+
         <div class="calendar">
-            <!-- Header med dage -->
             <div class="calendar-header bg-primary">
-                <div class="time-slot-header"></div> <!-- Tomt felt i hjørnet -->
+                <div class="time-slot-header"></div>
                 <div class="day">Mandag</div>
                 <div class="day">Tirsdag</div>
                 <div class="day">Onsdag</div>
                 <div class="day">Torsdag</div>
                 <div class="day">Fredag</div>
             </div>
-    
-            <!-- Kalender krop -->
+
             <div class="calendar-body">
                 <div class="time-slot">10:30</div>
-                <div class="event">
-                    <p>Borgervej 12<br>Jens Hansen</p>
+                <div class="event" data-title="Besøg hos Mark Hansen" data-name="Mark Hansen"
+                    data-address="Borgervej 12"
+                    data-description="Hjælp til HP-Printer - Der er problemer med printerens forbindelse til netværket."
+                    data-time="10:30" data-responsible="Morten" data-ticket="Ticket #1" onclick="openEventModal(this)">
+                    <p>Borgervej 12<br>Mark Hansen</p>
                     <p class="responsible">Ansvarlig: Morten</p>
+                    <p class="ticket">Ticket #1</p>
                 </div>
                 <div class="empty"></div>
                 <div class="empty"></div>
-                <div class="event">
+                <div class="event" data-title="Besøg hos Lise Andersen" data-name="Lise Andersen"
+                    data-address="Sundhedsvej 5" data-description="Beskrivelsetitel - En beskrivelse" data-time="10:30"
+                    data-responsible="Emma" data-ticket="Ticket #?" onclick="openEventModal(this)">
                     <p>Sundhedsvej 5<br>Lise Andersen</p>
                     <p class="responsible">Ansvarlig: Emma</p>
                 </div>
                 <div class="empty"></div>
-    
+
                 <div class="time-slot">12:30</div>
                 <div class="empty"></div>
-                <div class="event">
-                    <p>Park Allé 8<br>Morten Nielsen</p>
-                    <p class="responsible">Ansvarlig: Morten</p>
-                </div>
                 <div class="empty"></div>
                 <div class="empty"></div>
                 <div class="empty"></div>
-    
             </div>
+
         </div>
-    
+
+
         <div class="responsible-list">
             <h3>
                 <button class="collapse-btn bg-primary" onclick="toggleResponsibleList()">Ansvarlige personer</button>
             </h3>
             <ul id="responsible-list" class="collapse">
+                <li>**PLACEHOLDER DATA**</li>
                 <li>Morten Nielsen: 7 gange</li>
                 <li>Emma Sørensen: 5 gange</li>
                 <li>Jens Hansen: 3 gange</li>
@@ -153,9 +157,32 @@
             </ul>
         </div>
     </div>
-    
-    
-    
+    <!-- Dataen er statisk -->
+    <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEventTitle">Event Titel</h5>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Kundenavn:</strong> <span id="modalEventName"></span></p>
+                    <p><strong>Kundeaddresse:</strong> <span id="modalEventAddress"></span></p>
+                    <p><strong><span id="modalEventTicket"></span></strong></p>
+                    <p id="modalEventDescription">Beskrivelse</p>
+                    <p><strong>Aftalt tid:</strong> <span id="modalEventTime"></span></p>
+                    <p><strong>Ansvarlig:</strong> <span id="modalEventResponsible"></span></p>
+                </div>
+                <div class="modal-footer">
+                    <a type="button" class="btn btn-danger" href="ticketsPage.html">Rediger ticket?</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Luk</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
 
     <script src="/scripts/bootstrap.bundle.min.js"></script>
     <script src="/scripts/newCustomScript.js"></script>
