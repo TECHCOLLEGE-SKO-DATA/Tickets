@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketLib", "TicketLib\Tick
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketTests", "TicketTests\TicketTests.csproj", "{6F2DA700-D496-482F-8010-7E24C403B277}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticket.Console", "Ticket.Console\Ticket.Console.csproj", "{EEEB1956-2BE5-4DC8-87BD-B6A0BFCF94EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{6F2DA700-D496-482F-8010-7E24C403B277}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F2DA700-D496-482F-8010-7E24C403B277}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F2DA700-D496-482F-8010-7E24C403B277}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEEB1956-2BE5-4DC8-87BD-B6A0BFCF94EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEEB1956-2BE5-4DC8-87BD-B6A0BFCF94EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEEB1956-2BE5-4DC8-87BD-B6A0BFCF94EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEEB1956-2BE5-4DC8-87BD-B6A0BFCF94EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
