@@ -28,6 +28,7 @@ public class EditPersonScreen : TicketScreen
         
         if (!form.Edit(_person)) 
         {
+            _platform.Database.Persons.Add(_person);
             Quit();
         } 
         else 
