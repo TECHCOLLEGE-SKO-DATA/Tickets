@@ -10,6 +10,6 @@ public interface IDatabase
     IRepository<Staff> Staffs { get; }
     IRepository<IncidentLog> IncidentLogs { get; }
     IRepository<ContactMethod> ContactMethods { get; }
-
     IRepository<City> Citys { get; }
+    IRepository<Address> Addresss { get; }
 }

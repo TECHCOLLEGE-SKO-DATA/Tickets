@@ -17,6 +17,7 @@ public class ConsoleDatabase : IDatabase
     public IRepository<Staff> Staffs { get; private set; }
     public IRepository<ContactMethod> ContactMethods { get; private set; }
     public IRepository<City> Citys { get; private set; }
+    public IRepository<Address> Addresss { get; private set; }
 
     public ConsoleDatabase(string connection_string)
     {
@@ -27,5 +28,6 @@ public class ConsoleDatabase : IDatabase
         Staffs = new StaffRepository(_connectionHelper);
         ContactMethods = new ContactMethodRepository(_connectionHelper);
         Citys = new CityRepository(_connectionHelper);
+        Addresss = new AddressRepository(_connectionHelper);
     }
 }
