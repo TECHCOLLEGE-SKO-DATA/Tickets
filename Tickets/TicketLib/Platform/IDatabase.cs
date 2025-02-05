@@ -6,4 +6,5 @@ namespace TicketLib.Platform;
 public interface IDatabase
 {
     IRepository<Person> Persons { get; }
+    IRepository<City> Citys { get; }
 }

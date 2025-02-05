@@ -1,8 +1,9 @@
 using System.ComponentModel.DataAnnotations;
+using TicketLib.Models;
 
 namespace TicketLib;
 
-public class City 
+public class City : BaseModel
 {
     public short CityId { get; set; } //(PK)
 
