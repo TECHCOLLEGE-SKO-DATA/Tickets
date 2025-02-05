@@ -104,7 +104,6 @@
 
         <div class="d-flex justify-content-between mb-3">
             <button class="btn btn-primary">Forrige uge</button>
-            <h4 id="weekLabel"></h4>
             <button class="btn btn-primary">Næste uge</button>
         </div>
 
@@ -121,36 +120,127 @@
                 <tr>
                     <td scope="row">Mandag</td>
                         <td>03-02-2025</td>
-                        <td>Mads</td>
-                        <td>Mark</td>
+                        <td>
+                            <select class="person-select">
+                                <option>Vælg person</option>
+                                <option value="Mads">Mads</option>
+                                <option value="Mark">Mark</option>
+                                <option value="Peter">Peter</option>
+                                <option value="Oliver">Oliver</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="person-select">
+                                <option>Vælg person</option>
+                                <option value="Mads">Mads</option>
+                                <option value="Mark">Mark</option>
+                                <option value="Peter">Peter</option>
+                                <option value="Oliver">Oliver</option>
+                            </select>
+                        </td>
                 </tr>
                 <tr>
                     <td scope="row">Tirsdag</td>
                         <td>04-02-2025</td>
-                        <td>Mads</td>
-                        <td>Mark</td>
+                        <td>
+                            <select class="person-select">
+                                <option>Vælg person</option>
+                                <option value="Mads">Mads</option>
+                                <option value="Mark">Mark</option>
+                                <option value="Peter">Peter</option>
+                                <option value="Oliver">Oliver</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="person-select">
+                                <option>Vælg person</option>
+                                <option value="Mads">Mads</option>
+                                <option value="Mark">Mark</option>
+                                <option value="Peter">Peter</option>
+                                <option value="Oliver">Oliver</option>
+                            </select>
+                        </td>
                 </tr>
                 <tr>
                     <td scope="row">Onsdag</td>
                         <td>05-02-2025</td>
-                        <td>Mads</td>
-                        <td>Mark</td>
+                        <td>
+                            <select class="person-select">
+                                <option>Vælg person</option>
+                                <option value="Mads">Mads</option>
+                                <option value="Mark">Mark</option>
+                                <option value="Peter">Peter</option>
+                                <option value="Oliver">Oliver</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="person-select">
+                                <option>Vælg person</option>
+                                <option value="Mads">Mads</option>
+                                <option value="Mark">Mark</option>
+                                <option value="Peter">Peter</option>
+                                <option value="Oliver">Oliver</option>
+                            </select>
+                        </td>
                 </tr>
                 <tr>
                     <td scope="row">Torsdag</td>
                         <td>06-02-2025</td>
-                        <td>Mads</td>
-                        <td>Mark</td>
+                        <td>
+                            <select class="person-select">
+                                <option>Vælg person</option>
+                                <option value="Mads">Mads</option>
+                                <option value="Mark">Mark</option>
+                                <option value="Peter">Peter</option>
+                                <option value="Oliver">Oliver</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="person-select">
+                                <option>Vælg person</option>
+                                <option value="Mads">Mads</option>
+                                <option value="Mark">Mark</option>
+                                <option value="Peter">Peter</option>
+                                <option value="Oliver">Oliver</option>
+                            </select>
+                        </td>
                 </tr>
                 <tr>
                     <td scope="row">Fredag</td>
                         <td>07-02-2025</td>
-                        <td>Mads</td>
-                        <td>Mark</td>
+                        <td>
+                            <select class="person-select">
+                                <option>Vælg person</option>
+                                <option value="Mads">Mads</option>
+                                <option value="Mark">Mark</option>
+                                <option value="Peter">Peter</option>
+                                <option value="Oliver">Oliver</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="person-select">
+                                <option>Vælg person</option>
+                                <option value="Mads">Mads</option>
+                                <option value="Mark">Mark</option>
+                                <option value="Peter">Peter</option>
+                                <option value="Oliver">Oliver</option>
+                            </select>
+                        </td>
                 </tr>
 
             </tbody>
         </table>
+        <div class="responsible-list">
+            <h3>
+                <button class="collapse-btn bg-primary" onclick="toggleResponsibleList()">Pc-hjælp personer</button>
+            </h3>
+            <ul id="responsible-list" class="collapse">
+                <li>Mads: 7 gange</li>
+                <li>Mark: 5 gange</li>
+                <li>Peter: 3 gange</li>
+                <li>Oliver: 2 gange</li>
+            </ul>
+        </div>
     </div>
 
     <script src="/scripts/bootstrap.bundle.min.js"></script>
