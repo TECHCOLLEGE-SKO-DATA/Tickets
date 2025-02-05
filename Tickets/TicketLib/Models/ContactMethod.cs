@@ -1,6 +1,6 @@
 namespace TicketLib.Models;
 
-public class ContactMethod 
+public class ContactMethod : BaseModel
 {
     public int ContactMethodId { get; set; } //(PK)
 
