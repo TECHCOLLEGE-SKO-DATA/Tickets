@@ -11,4 +11,5 @@ public interface IDatabase
     IRepository<IncidentLog> IncidentLogs { get; }
     IRepository<ContactMethod> ContactMethods { get; }
 
+    IRepository<City> Citys { get; }
 }
