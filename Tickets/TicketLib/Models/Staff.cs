@@ -1,6 +1,8 @@
+using TicketLib.Models;
+
 namespace TicketLib;
 
-public class Staff 
+public class Staff : BaseModel
 {
     public int PersonId { get; set; } //(PK, FK)
     public string Username { get; set; }

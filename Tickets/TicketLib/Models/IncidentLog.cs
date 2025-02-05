@@ -1,6 +1,8 @@
+using TicketLib.Models;
+
 namespace TicketLib;
 
-public class IncidentLog
+public class IncidentLog : BaseModel
 {
     public int IncidentLogId { get; set; } // (PK)
 
