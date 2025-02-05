@@ -1,6 +1,8 @@
+using TicketLib.Models;
+
 namespace TicketLib;
 
-public class Address
+public class Address : BaseModel
 {
     public int AddressId { get; set; } //(PK)
 
