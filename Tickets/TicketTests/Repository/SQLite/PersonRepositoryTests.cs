@@ -19,16 +19,16 @@ public class PersonRepositoryTests
 
         Assert.NotNull(konrad);
         Assert.Equal(1, konrad.PersonId);
-        Assert.Equal("Konrad", konrad.Firstname);
-        Assert.Equal("Sommer", konrad.Lastname);
+        Assert.Equal("Konrad", konrad.FirstName);
+        Assert.Equal("Sommer", konrad.LastName);
 
         //Get Steen Sachs Pappy (id 2)
         Person? steen = repo.GetById(2);
         Assert.NotNull(steen);
         Assert.Equal(2, steen.PersonId);
-        Assert.Equal("Steen", steen.Firstname);
-        Assert.Equal("Sachs", steen.Middlename);
-        Assert.Equal("Pappy", steen.Lastname);
+        Assert.Equal("Steen", steen.FirstName);
+        Assert.Equal("Sachs", steen.MiddleName);
+        Assert.Equal("Pappy", steen.LastName);
 
         //Check GetById with invalid id returns null
         Assert.Null(repo.GetById(0));
@@ -40,9 +40,9 @@ public class PersonRepositoryTests
         using MockSQLiteConnectionHelper helper = new();
         PersonRepository repo = new(helper);
         Person remo = new () {
-            Firstname = "Remo",
-            Middlename = "",
-            Lastname = "Lademann",
+            FirstName = "Remo",
+            MiddleName = "",
+            LastName = "Lademann",
             Address = 1,
             RegisterdDate = DateTime.Now,
             PreferredContactMethod = 0
@@ -50,14 +50,14 @@ public class PersonRepositoryTests
         repo.Add(remo);
         Person? remoAgain = repo.GetById(4);
         Assert.NotNull(remoAgain);
-        Assert.Equal(remo.Firstname, remoAgain.Firstname);
-        Assert.Equal(remo.Lastname, remoAgain.Lastname);
+        Assert.Equal(remo.FirstName, remoAgain.FirstName);
+        Assert.Equal(remo.LastName, remoAgain.LastName);
 
         //Cannot add person with nonexisting address
         Person ella = new () {
-            Firstname = "Ella",
-            Middlename = "",
-            Lastname = "Stick",
+            FirstName = "Ella",
+            MiddleName = "",
+            LastName = "Stick",
             Address = 0, //Does not exist
             RegisterdDate = DateTime.Now,
             PreferredContactMethod = 0
@@ -89,9 +89,9 @@ public class PersonRepositoryTests
 
         //Add another person
         Person remo = new () {
-            Firstname = "Remo",
-            Middlename = "",
-            Lastname = "Lademann",
+            FirstName = "Remo",
+            MiddleName = "",
+            LastName = "Lademann",
             Address = 1,
             RegisterdDate = DateTime.Now,
             PreferredContactMethod = 0
@@ -146,9 +146,9 @@ public class PersonRepositoryTests
             PersonRepository repo = new(conn);
 
             //Update Konrad Sommers address
-            konrad.Firstname = firstname;
-            konrad.Middlename = middlename;
-            konrad.Lastname = lastname;
+            konrad.FirstName = firstname;
+            konrad.MiddleName = middlename;
+            konrad.LastName = lastname;
             konrad.RegisterdDate = now;
             konrad.Address = 1;
             repo.Update(konrad);
@@ -156,9 +156,9 @@ public class PersonRepositoryTests
             //Get Konrad and see the model was updated
             konrad = repo.GetById(1);
             Assert.NotNull(konrad);
-            Assert.Equal(firstname, konrad.Firstname);
-            Assert.Equal(middlename, konrad.Middlename);
-            Assert.Equal(lastname, konrad.Lastname);
+            Assert.Equal(firstname, konrad.FirstName);
+            Assert.Equal(middlename, konrad.MiddleName);
+            Assert.Equal(lastname, konrad.LastName);
             Assert.Equal(now, konrad.RegisterdDate);
         }
     }

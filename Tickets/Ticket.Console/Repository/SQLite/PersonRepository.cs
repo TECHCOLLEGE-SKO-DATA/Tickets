@@ -25,9 +25,9 @@ public class PersonRepository : IRepository<Person>
         while (reader.Read()) {
             Person p = new() {
                 PersonId = reader.GetInt32(0),
-                Firstname = reader.GetString(1),
-                Middlename = reader.GetString(2),
-                Lastname = reader.GetString(3),
+                FirstName = reader.GetString(1),
+                MiddleName = reader.GetString(2),
+                LastName = reader.GetString(3),
                 RegisterdDate = reader.GetDateTime(4),
                 Address = reader.GetInt32(5),
                 PreferredContactMethod = reader.GetInt32(6),
@@ -46,9 +46,9 @@ public class PersonRepository : IRepository<Person>
         if (reader.Read()) {
             Person p = new() {
                 PersonId = reader.GetInt32(0),
-                Firstname = reader.GetString(1),
-                Middlename = reader.GetString(2),
-                Lastname = reader.GetString(3),
+                FirstName = reader.GetString(1),
+                MiddleName = reader.GetString(2),
+                LastName = reader.GetString(3),
                 RegisterdDate = reader.GetDateTime(4),
                 Address = reader.GetInt32(5),
                 PreferredContactMethod = reader.GetInt32(6),
@@ -64,9 +64,9 @@ public class PersonRepository : IRepository<Person>
         SQLiteCommand command = conn.CreateCommand();
         command.CommandText = $"INSERT INTO {TABLE} (firstName,middleName,lastName, registeredDate, addressId, preferredContactMethodId) VALUES (@firstName, @middleName, @lastName, @registeredDate, @addressId, @preferredContactMethodId)";
 
-        command.Parameters.AddWithValue("@firstName", model.Firstname);
-        command.Parameters.AddWithValue("@middleName", model.Middlename);
-        command.Parameters.AddWithValue("@lastName", model.Lastname);
+        command.Parameters.AddWithValue("@firstName", model.FirstName);
+        command.Parameters.AddWithValue("@middleName", model.MiddleName);
+        command.Parameters.AddWithValue("@lastName", model.LastName);
         command.Parameters.AddWithValue("@registeredDate", model.RegisterdDate);
         command.Parameters.AddWithValue("@addressId", model.Address);
         command.Parameters.AddWithValue("@preferredContactMethodId", model.PreferredContactMethod);
@@ -85,9 +85,9 @@ public class PersonRepository : IRepository<Person>
                     addressId = @addressId,
                     preferredContactMethodId = @preferredContactMethodId
                 WHERE personId=@id";
-        command.Parameters.AddWithValue("@firstName", model.Firstname);
-        command.Parameters.AddWithValue("@middleName", model.Middlename);
-        command.Parameters.AddWithValue("@lastName", model.Lastname);
+        command.Parameters.AddWithValue("@firstName", model.FirstName);
+        command.Parameters.AddWithValue("@middleName", model.MiddleName);
+        command.Parameters.AddWithValue("@lastName", model.LastName);
         command.Parameters.AddWithValue("@registeredDate", model.RegisterdDate);
         command.Parameters.AddWithValue("@addressId", model.Address);
         command.Parameters.AddWithValue("@preferredContactMethodId", model.PreferredContactMethod);

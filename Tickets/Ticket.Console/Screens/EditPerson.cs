@@ -22,9 +22,9 @@ public class EditPersonScreen : TicketScreen
     {
         Form<Person> form = new();
         
-        form.TextBox("First name", nameof(_person.Firstname));
-        form.TextBox("Middle name", nameof(_person.Middlename));
-        form.TextBox("Last name", nameof(_person.Lastname));
+        form.TextBox("First name", nameof(_person.FirstName));
+        form.TextBox("Middle name", nameof(_person.MiddleName));
+        form.TextBox("Last name", nameof(_person.LastName));
         
         if (!form.Edit(_person)) 
         {

@@ -16,11 +16,11 @@ public class FilterTest
         Assert.Equal("name=1 AND test=\"hm\"", test.ToString());*/
 
         Person p = new Person {
-            Firstname = "Konrad"
+            FirstName = "Konrad"
         };
 
-        var filter = Filter.Where(() => p.Firstname == "Konrad");
-        Assert.Equal("Firstname=\"Konrad\"", filter.ToString());
+        var filter = Filter.Where(() => p.FirstName == "Konrad");
+        Assert.Equal("FirstName=\"Konrad\"", filter.ToString());
 
     }
 }
