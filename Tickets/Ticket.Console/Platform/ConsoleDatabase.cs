@@ -18,6 +18,7 @@ public class ConsoleDatabase : IDatabase
     public IRepository<ContactMethod> ContactMethods { get; private set; }
     public IRepository<City> Citys { get; private set; }
     public IRepository<Address> Addresss { get; private set; }
+    public IRepository<ContactInfoType> ContactInfoTypes { get; private set; }
 
     public ConsoleDatabase(string connection_string)
     {
@@ -29,5 +30,6 @@ public class ConsoleDatabase : IDatabase
         ContactMethods = new ContactMethodRepository(_connectionHelper);
         Citys = new CityRepository(_connectionHelper);
         Addresss = new AddressRepository(_connectionHelper);
+        ContactInfoTypes = new ContactInfoTypeRepository(_connectionHelper);
     }
 }

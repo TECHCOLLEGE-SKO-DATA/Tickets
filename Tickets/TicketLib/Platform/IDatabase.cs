@@ -12,4 +12,5 @@ public interface IDatabase
     IRepository<ContactMethod> ContactMethods { get; }
     IRepository<City> Citys { get; }
     IRepository<Address> Addresss { get; }
+    IRepository<ContactInfoType> ContactInfoTypes { get; }
 }
