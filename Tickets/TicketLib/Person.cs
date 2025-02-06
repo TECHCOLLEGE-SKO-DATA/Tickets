@@ -1,6 +1,6 @@
 namespace TicketLib;
 
-public class Person 
+public class Person : IModel
 {
     public int PersonId { get; set; } //(PK)
 
@@ -15,4 +15,9 @@ public class Person
     public DateTime RegisterdDate { get; set; }
 
     public int PreferredContactMethod { get; set; } //(PK)
+
+    public string Validate()
+    {
+        throw new NotImplementedException();
+    }
 }

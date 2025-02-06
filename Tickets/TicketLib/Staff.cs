@@ -1,6 +1,6 @@
 namespace TicketLib;
 
-public class Staff 
+public class Staff : IModel
 {
     public int PersonId { get; set; } //(PK, FK)
     public string Username { get; set; }
@@ -12,4 +12,9 @@ public class Staff
 
     // Profil billede til (sidennav) så man kan se man er logget ind.
     public char ProfilePicture { get; set; }
+
+    public string Validate()
+    {
+        throw new NotImplementedException();
+    }
 }

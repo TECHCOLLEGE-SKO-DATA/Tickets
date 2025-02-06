@@ -1,6 +1,6 @@
 namespace TicketLib;
 
-public class Incident 
+public class Incident : IModel
 {
     public int IncidentId { get; set; } //(PK)
 
@@ -14,4 +14,9 @@ public class Incident
 
     public DateTime ResolutionDate { get; set; }
     public string ResolutionDescription { get; set; }
+
+    public string Validate()
+    {
+        throw new NotImplementedException();
+    }
 }

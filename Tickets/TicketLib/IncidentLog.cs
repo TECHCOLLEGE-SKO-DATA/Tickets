@@ -1,6 +1,6 @@
 namespace TicketLib;
 
-public class IncidentLog
+public class IncidentLog : IModel
 {
     public int IncidentLogId { get; set; } // (PK)
 
@@ -8,4 +8,8 @@ public class IncidentLog
 
     public string LogDescription { get; set; }
 
+    public string Validate()
+    {
+        throw new NotImplementedException();
+    }
 }
