@@ -6,7 +6,7 @@ using TicketLib;
 
 namespace Ticket.Console.Repository.Sqlite;
 
-public class StaffRepository : IRepository<Staff>
+public class StaffRepository : IRepository<Employee>
 {
     IConnectionHelper<SQLiteConnection> _connectionHelper;
 
@@ -17,17 +17,17 @@ public class StaffRepository : IRepository<Staff>
         _connectionHelper = connectionHelper;
     }
 
-    public IEnumerable<Staff> GetAll()
+    public IEnumerable<Employee> GetAll()
     {
         using SQLiteConnection conn = _connectionHelper.GetConnection();
         SQLiteCommand command = conn.CreateCommand();
         command.CommandText = $"SELECT PersonId, Username, IsDriversLicenceValid, ProfilePicture FROM {TABLE}";
 
-        List<Staff> result = new();
+        List<Employee> result = new();
         SQLiteDataReader reader = command.ExecuteReader();
         while (reader.Read())
         {
-            Staff s = new()
+            Employee s = new()
             {
                 PersonId = reader.GetInt32(0),
                 Username = reader.GetString(1),
@@ -39,7 +39,7 @@ public class StaffRepository : IRepository<Staff>
         return result;
     }
 
-    public Staff? GetById(int id)
+    public Employee? GetById(int id)
     {
         using SQLiteConnection conn = _connectionHelper.GetConnection();
         SQLiteCommand command = conn.CreateCommand();
@@ -48,7 +48,7 @@ public class StaffRepository : IRepository<Staff>
         SQLiteDataReader reader = command.ExecuteReader();
         if (reader.Read())
         {
-            Staff s = new()
+            Employee s = new()
             {
                 PersonId = reader.GetInt32(0),
                 Username = reader.GetString(1),
@@ -60,7 +60,7 @@ public class StaffRepository : IRepository<Staff>
         return null;
     }
 
-    public void Add(Staff model)
+    public void Add(Employee model)
     {
         using SQLiteConnection conn = _connectionHelper.GetConnection();
         SQLiteCommand command = conn.CreateCommand();
@@ -73,7 +73,7 @@ public class StaffRepository : IRepository<Staff>
         command.ExecuteNonQuery();
     }
 
-    public void Update(Staff model)
+    public void Update(Employee model)
     {
         using SQLiteConnection conn = _connectionHelper.GetConnection();
         SQLiteCommand command = conn.CreateCommand();

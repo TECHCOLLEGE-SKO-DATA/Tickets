@@ -14,7 +14,7 @@ public class ConsoleDatabase : IDatabase
     public IRepository<Person> Persons { get; private set; }
     public IRepository<Incident> Incidents { get; private set; }
     public IRepository<IncidentLog> IncidentLogs { get; private set; }
-    public IRepository<Staff> Staffs { get; private set; }
+    public IRepository<Employee> Staffs { get; private set; }
     public IRepository<ContactMethod> ContactMethods { get; private set; }
     public IRepository<City> Citys { get; private set; }
     public IRepository<Address> Addresss { get; private set; }
