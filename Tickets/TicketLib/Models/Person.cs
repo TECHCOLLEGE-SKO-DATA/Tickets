@@ -1,6 +1,6 @@
-namespace TicketLib;
+namespace TicketLib.Models;
 
-public class Person 
+public class Person : BaseModel
 {
     public int PersonId { get; set; } //(PK)
 

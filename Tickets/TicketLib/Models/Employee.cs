@@ -2,11 +2,7 @@ using TicketLib.Models;
 
 namespace TicketLib;
 
-<<<<<<<< HEAD:Tickets/TicketLib/Models/Staff.cs
-public class Staff : BaseModel
-========
-public class Employee
->>>>>>>> upstream/main:Tickets/TicketLib/Employee.cs
+public class Employee : BaseModel
 {
     public int PersonId { get; set; } //(PK, FK)
     public string Username { get; set; }
