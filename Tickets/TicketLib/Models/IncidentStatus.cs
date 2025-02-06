@@ -1,6 +1,6 @@
 namespace TicketLib;
 
-public enum IncidentStatus 
+public enum IncidentStatus
 {
     // Normal Statuses
     Open,                                                                                                                                                                    

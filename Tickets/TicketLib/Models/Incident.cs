@@ -2,7 +2,7 @@ using TicketLib.Models;
 
 namespace TicketLib;
 
-public class Incident : BaseModel
+public class Incident : BaseModel, IModel
 {
     public int IncidentId { get; set; } //(PK)
 
@@ -16,4 +16,9 @@ public class Incident : BaseModel
 
     public DateTime ResolutionDate { get; set; }
     public string ResolutionDescription { get; set; }
+
+    public string Validate()
+    {
+        throw new NotImplementedException();
+    }
 }
