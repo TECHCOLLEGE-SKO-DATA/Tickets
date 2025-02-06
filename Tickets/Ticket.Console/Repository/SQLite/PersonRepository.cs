@@ -8,22 +8,24 @@ namespace Ticket.Console.Repository.SQLite;
 public class PersonRepository : IRepository<Person>
 {
     IConnectionHelper<SQLiteConnection> _connectionHelper;
-    const string TABLE = "person";
-    public PersonRepository(IConnectionHelper<SQLiteConnection> connectionHelper) 
+    const string TABLE = "Person";
+    public PersonRepository(IConnectionHelper<SQLiteConnection> connectionHelper)
     {
         _connectionHelper = connectionHelper;
     }
 
-    public IEnumerable<Person> GetAll() 
+    public IEnumerable<Person> GetAll()
     {
         using SQLiteConnection conn = _connectionHelper.GetConnection();
         SQLiteCommand command = conn.CreateCommand();
-        command.CommandText = $"SELECT personId, firstName, middleName,lastName, registeredDate, addressId, preferredContactMethodId FROM {TABLE}";
-        
+        command.CommandText = $"SELECT PersonId, FirstName, MiddleName, LastName, RegisteredDate, AddressId, PreferredContactMethodId FROM {TABLE}";
+
         List<Person> result = new();
         SQLiteDataReader reader = command.ExecuteReader();
-        while (reader.Read()) {
-            Person p = new() {
+        while (reader.Read())
+        {
+            Person p = new()
+            {
                 PersonId = reader.GetInt32(0),
                 FirstName = reader.GetString(1),
                 MiddleName = reader.GetString(2),
@@ -36,15 +38,17 @@ public class PersonRepository : IRepository<Person>
         }
         return result;
     }
-    public Person? GetById(int id) 
+    public Person? GetById(int id)
     {
         using SQLiteConnection conn = _connectionHelper.GetConnection();
         SQLiteCommand command = conn.CreateCommand();
         command.CommandText = $"SELECT personId, firstName,middleName,lastName, registeredDate, addressId, preferredContactMethodId FROM {TABLE} WHERE personId=@id";
         command.Parameters.AddWithValue("@id", id);
         SQLiteDataReader reader = command.ExecuteReader();
-        if (reader.Read()) {
-            Person p = new() {
+        if (reader.Read())
+        {
+            Person p = new()
+            {
                 PersonId = reader.GetInt32(0),
                 FirstName = reader.GetString(1),
                 MiddleName = reader.GetString(2),
@@ -55,25 +59,27 @@ public class PersonRepository : IRepository<Person>
             };
             return p;
         }
-        
+
         return null;
     }
     public void Add(Person model)
     {
         using SQLiteConnection conn = _connectionHelper.GetConnection();
         SQLiteCommand command = conn.CreateCommand();
-        command.CommandText = $"INSERT INTO {TABLE} (firstName,middleName,lastName, registeredDate, addressId, preferredContactMethodId) VALUES (@firstName, @middleName, @lastName, @registeredDate, @addressId, @preferredContactMethodId)";
+        command.CommandText = $"INSERT INTO {TABLE} (firstName, middleName, lastName, registeredDate, addressId, preferredContactMethodId) VALUES (@firstName, @middleName, @lastName, @registeredDate, @addressId, @preferredContactMethodId)";
 
         command.Parameters.AddWithValue("@firstName", model.FirstName);
         command.Parameters.AddWithValue("@middleName", model.MiddleName);
         command.Parameters.AddWithValue("@lastName", model.LastName);
-        command.Parameters.AddWithValue("@registeredDate", model.RegisterdDate);
+
+        // Sørg for at formatere RegisteredDate korrekt
+        command.Parameters.AddWithValue("@registeredDate", model.RegisterdDate.ToString("yyyy-MM-dd HH:mm:ss"));
+
         command.Parameters.AddWithValue("@addressId", model.Address);
         command.Parameters.AddWithValue("@preferredContactMethodId", model.PreferredContactMethod);
         command.ExecuteNonQuery();
-
     }
-    public void Update(Person model) 
+    public void Update(Person model)
     {
         using SQLiteConnection conn = _connectionHelper.GetConnection();
         SQLiteCommand command = conn.CreateCommand();
@@ -94,7 +100,7 @@ public class PersonRepository : IRepository<Person>
         command.Parameters.AddWithValue("@id", model.PersonId);
         command.ExecuteNonQuery();
     }
-    public void Delete(int id) 
+    public void Delete(int id)
     {
         using SQLiteConnection conn = _connectionHelper.GetConnection();
         SQLiteCommand command = conn.CreateCommand();

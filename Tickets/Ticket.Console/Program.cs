@@ -7,6 +7,7 @@ using Ticket.Console.Screens;
 using Ticket.Console.Platform;
 using TECHCOOL.UI;
 
-ConsolePlatform platform = new("Data Source=:memory:");
-MainScreen screen = new(platform);
+ConsolePlatform platform = new("Data Source=ticketSystem.db");
+// MainScreen screen = new(platform);
+PersonListPage screen = new(platform);
 Screen.Display(screen);
