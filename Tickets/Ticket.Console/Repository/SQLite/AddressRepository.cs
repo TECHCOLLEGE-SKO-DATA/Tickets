@@ -37,7 +37,7 @@ public class AddressRepository : IRepository<Address>
     {
         using SQLiteConnection conn = _connectionHelper.GetConnection();
         SQLiteCommand command = conn.CreateCommand();
-        command.CommandText = $"SELECT Street, Number,CityId FROM {TABLE} WHERE AddressId=@id";
+        command.CommandText = $"SELECT AddressId, Street, Number,CityId FROM {TABLE} WHERE AddressId=@id";
         command.Parameters.AddWithValue("@id", id);
         SQLiteDataReader reader = command.ExecuteReader();
         if (reader.Read()) {

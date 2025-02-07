@@ -75,7 +75,16 @@ public class MockSQLiteConnectionHelper : IConnectionHelper<SQLiteConnection>, I
         // Delete the temporary file
         if (!string.IsNullOrEmpty(_tempFile) && File.Exists(_tempFile))
         {
-            File.Delete(_tempFile);
+            for (int i = 0; i < 5; i++) 
+            { 
+                try
+                {
+                    File.Delete(_tempFile);
+                } catch (IOException)
+                {
+                    Thread.Sleep(200);
+                }
+            }
         }
     }
 }
