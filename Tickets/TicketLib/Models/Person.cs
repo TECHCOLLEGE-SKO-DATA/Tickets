@@ -4,11 +4,11 @@ public class Person : BaseModel, IModel
 {
     public int PersonId { get; set; } //(PK)
 
-    public string FirstName { get; set; }
+    public string FirstName { get; set; } = " ";
 
-    public string MiddleName { get; set; }
+    public string MiddleName { get; set; } = " ";
 
-    public string LastName { get; set; }
+    public string LastName { get; set; } = " ";
 
     public int Address { get; set; } //(FK)
 
