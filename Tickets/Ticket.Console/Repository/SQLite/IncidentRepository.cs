@@ -5,7 +5,7 @@ using System.Data.Common;
 using TicketLib;
 using MySqlX.XDevAPI.Relational;
 
-namespace Ticket.Console.Repository.Sqlite;
+namespace Ticket.Console.Repository.SQLite;
 
 public class IncidentRepository : IRepository<Incident> 
 {
