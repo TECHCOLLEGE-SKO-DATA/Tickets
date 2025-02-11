@@ -7,7 +7,7 @@ public interface IDatabase
 {
     IRepository<Person> Persons { get; }
     IRepository<Incident> Incidents { get; }
-    IRepository<Employee> Staffs { get; }
+    IRepository<Employee> Employees { get; }
     IRepository<IncidentLog> IncidentLogs { get; }
     IRepository<ContactMethod> ContactMethods { get; }
     IRepository<City> Citys { get; }
