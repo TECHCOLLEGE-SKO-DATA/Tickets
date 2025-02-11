@@ -10,12 +10,12 @@ public class Incident : BaseModel, IModel
 
     public DateTime IssueDate { get; set; }
 
-    public string IssueDescription { get; set; }
+    public string IssueDescription { get; set; } = " ";
 
     public int CreatedBy { get; set; } //(FK Staff)
 
     public DateTime ResolutionDate { get; set; }
-    public string ResolutionDescription { get; set; }
+    public string ResolutionDescription { get; set; } = " ";
 
     public string Validate()
     {
