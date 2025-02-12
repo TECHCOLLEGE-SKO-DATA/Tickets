@@ -125,6 +125,7 @@
                         <th scope="col">Email</th>
                         <th scope="col">Telefonnummer</th>
                         <th scope="col">Rolle</th>
+                        <th scope="col">Kørekort</th>
                         <th scope="col">Handlinger</th>
                     </tr>
                 </thead>
@@ -137,6 +138,7 @@
                         <td>mark.hansen@gmail.com</td>
                         <td>12345678</td>
                         <td>Admin</td>
+                        <td><img src="/Assets/Images/Icons/no_crash.svg" class="bg-primary"></td>
                         <td>
                             <button type="button" class="btn btn-primary btn-sm customBtn" data-bs-toggle="modal"
                                 data-bs-target="#ticketModal">
@@ -152,6 +154,7 @@
                         <td>christian.sejr@gmail.com</td>
                         <td>12345678</td>
                         <td>Admin</td>
+                        <td><img src="/Assets/Images/Icons/car_crash.svg" class="bg-danger"></td>
                         <td>
                             <button type="button" class="btn btn-primary btn-sm customBtn" data-bs-toggle="modal"
                                 data-bs-target="#ticketModal">
@@ -166,6 +169,7 @@
                     <td>emil.stabil@gmail.com</td>
                     <td>12345678</td>
                     <td>Admin</td>
+                    <td><img src="/Assets/Images/Icons/no_crash.svg" class="bg-primary"></td>
                     <td>
                         <button type="button" class="btn btn-primary btn-sm customBtn" data-bs-toggle="modal"
                             data-bs-target="#ticketModal">
@@ -180,6 +184,7 @@
                     <td>mark.hansen@gmail.com</td>
                     <td>12345678</td>
                     <td>Admin</td>
+                    <td><img src="/Assets/Images/Icons/car_crash.svg" class="bg-danger"></td>
                     <td>
                         <button type="button" class="btn btn-primary btn-sm customBtn" data-bs-toggle="modal"
                             data-bs-target="#ticketModal">
@@ -194,6 +199,7 @@
                         <td>andreas.krappe@gmail.com</td>
                         <td>12345678</td>
                         <td>Admin</td>
+                        <td><img src="/Assets/Images/Icons/no_crash.svg" class="bg-primary"></td>
                         <td>
                             <button type="button" class="btn btn-primary btn-sm customBtn" data-bs-toggle="modal"
                                 data-bs-target="#ticketModal">
@@ -240,6 +246,19 @@
                         <div class="mb-3">
                             <label for="modalUserPhoneNumber" class="form-label">Telefonnummer</label>
                             <input type="text" class="form-control" id="modalUserPhoneNumber">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="modalUserLicense">Har brugeren kørekort?</label>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="modalUserLicenseYes"
+                                    name="modalUserLicense" value="yes">
+                                <label class="form-check-label" for="modalUserLicenseYes">Ja</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="modalUserLicenseNo" name="modalUserLicense"
+                                    value="no">
+                                <label class="form-check-label" for="modalUserLicenseNo">Nej</label>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="modalUserRole" class="form-label">Rolle</label>

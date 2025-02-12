@@ -17,8 +17,10 @@
             <li>
                 <span class="logo">Tickets v0.4</span>
                 <button class="customSidenavBtn-oc" onclick="toggleSidebar()" id="toggle-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
-                        <path d="M383-480 200-664l56-56 240 240-240 240-56-56 183-184Zm264 0L464-664l56-56 240 240-240 240-56-56 183-184Z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#e8eaed">
+                        <path
+                            d="M383-480 200-664l56-56 240 240-240 240-56-56 183-184Zm264 0L464-664l56-56 240 240-240 240-56-56 183-184Z" />
                     </svg>
                 </button>
             </li>
@@ -37,7 +39,8 @@
                 <ul class="dropdown-menu">
                     <li>
                         <button onclick="location.href='/Pages/ticketsPage.html'" class="dropdown-item">
-                            <img class="customIcon_Sidenav" src="/Assets/Images/Icons/local_activity_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg">
+                            <img class="customIcon_Sidenav"
+                                src="/Assets/Images/Icons/local_activity_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg">
                             <span class="menu-text">Tickets</span>
                         </button>
                     </li>
@@ -51,16 +54,16 @@
             </li>
             <div class="divider"></div>
             <li>
-                <li>
-                    <button class="customSidenavBtn" onclick="location.href='/Pages/userPage.html'">
-                        <img class="customIcon_Sidenav" src="/Assets/Images/Icons/adminpanel.svg" />
-                        <span>Brugeroversigt</span>
-                    </button>
-                </li>
-                <button class="customSidenavBtn" onclick="location.href='/Pages/customerPage.html'">
-                    <img class="customIcon_Sidenav" src="/Assets/Images/Icons/groups_2.svg" />
-                    <span>Kundeoversigt</span>
+            <li>
+                <button class="customSidenavBtn" onclick="location.href='/Pages/userPage.html'">
+                    <img class="customIcon_Sidenav" src="/Assets/Images/Icons/adminpanel.svg" />
+                    <span>Brugeroversigt</span>
                 </button>
+            </li>
+            <button class="customSidenavBtn" onclick="location.href='/Pages/customerPage.html'">
+                <img class="customIcon_Sidenav" src="/Assets/Images/Icons/groups_2.svg" />
+                <span>Kundeoversigt</span>
+            </button>
             </li>
             <div class="divider"></div>
             <li>
@@ -76,6 +79,12 @@
                 </button>
             </li>
             <div class="divider"></div>
+            <li>
+                <button class="customSidenavBtn" data-bs-toggle="modal" data-bs-target="#ikkeAdminModal">
+                    <img class="customIcon_Sidenav" src="/Assets/Images/Icons/shield_person.svg" />
+                    <span>Admin Panel</span>
+                </button>
+            </li>
             <ul class="bg-primary" id="settings-menu">
                 <li>
                     <button class="customSidenavBtn">
@@ -131,7 +140,31 @@
                     <input type="text" placeholder="By" class="form-control">
                     <input type="text" placeholder="Postnummer" class="form-control">
                 </div>
-
+                Sagtype
+                <div class="input-group mb-4">
+                    <ul class="list-group list-group-horizontal">
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="radio" name="listGroupRadio" id="firstRadio"
+                                checked>
+                            <label class="form-check-label" for="firstRadio">Walk In</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="radio" name="listGroupRadio" id="secondRadio"
+                                data-bs-toggle="collapse" data-bs-target=".collapseUdkørsel" aria-expanded="false"
+                                aria-controls="collapseUdkørsel">
+                            <label class="form-check-label" for="secondRadio">Udkørsel</label>
+                        </li>
+                    </ul>
+                    <div class="collapse customHelpBox collapseUdkørsel">
+                        <div class="card card-body">
+                            <ul>
+                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae quo ullam, nesciunt
+                                    voluptas veniam quidem officia quam accusamus, ea incidunt alias asperiores dolorem
+                                    porro? Quas sit tenetur earum repellendus placeat?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <hr>
 
                 <div class="row">
@@ -174,6 +207,22 @@
                     <!-- SagsHistorikBox -->
                     <div class="border p-3 SagsHistorikBox">
                         <h5>Sags Historik</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="ikkeAdminModal" aria-labelledby="ikkeAdminModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <p>Denne konto har ikke den nødvendige "Admin" rolle</p>
+                            <a type="button" href="/Pages/loginPage.html" class="btn btn-primary">Skift bruger?</a>
+                            <p><em><small>Denne knap logger dig ud af din nuværende konto.</small></em></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+                        </div>
                     </div>
                 </div>
             </div>
