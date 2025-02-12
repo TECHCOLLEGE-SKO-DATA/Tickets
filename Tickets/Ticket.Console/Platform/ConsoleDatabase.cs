@@ -33,8 +33,16 @@ public class ConsoleDatabase : IDatabase
         ContactInfoTypes = new ContactInfoTypeRepository(_connectionHelper);
     }
 
-    public void ExecuteNonQuery() 
+    public void ExecuteNonQuery(string sql) 
     {
-        
+        using (var connection = _connectionHelper.GetConnection()) 
+        {
+
+            using (var command = connection.CreateCommand()) 
+            {
+                command.CommandText = sql;
+                command.ExecuteNonQuery();
+            }
+        }
     }
 }
