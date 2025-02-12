@@ -1,4 +1,5 @@
 using TECHCOOL.UI;
+using TicketLib;
 using TicketLib.Platform;
 
 namespace Ticket.Console.Screens;
@@ -17,6 +18,7 @@ public class MainScreen : TicketScreen
         Menu menu = new Menu();
         menu.Add( new EditPersonScreen(_platform) );
         menu.Add( new PersonListPage(_platform) );
+        menu.Add( new IncidentListPage(_platform) );
         Screen.Display(menu);
     }
 }
