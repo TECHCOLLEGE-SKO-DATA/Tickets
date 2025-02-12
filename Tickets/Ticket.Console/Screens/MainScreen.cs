@@ -17,6 +17,7 @@ public class MainScreen : TicketScreen
         Menu menu = new Menu();
         menu.Add( new EditPersonScreen(_platform) );
         menu.Add( new PersonListPage(_platform) );
+        menu.Add( new ContactMethodListPage(_platform));
         Screen.Display(menu);
     }
 }
