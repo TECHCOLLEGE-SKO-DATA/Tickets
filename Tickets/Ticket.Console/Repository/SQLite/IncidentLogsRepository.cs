@@ -4,7 +4,7 @@ using System.Data.SQLite;
 using System.Data.Common;
 using TicketLib;
 
-namespace Ticket.Console.Repository.Sqlite;
+namespace Ticket.Console.Repository.SQLite;
 
 public class IncidentLogsRepository : IRepository<IncidentLog>
 {

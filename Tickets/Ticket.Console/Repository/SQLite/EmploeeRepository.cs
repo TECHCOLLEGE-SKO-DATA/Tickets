@@ -4,15 +4,15 @@ using System.Data.SQLite;
 using System.Data.Common;
 using TicketLib;
 
-namespace Ticket.Console.Repository.Sqlite;
+namespace Ticket.Console.Repository.SQLite;
 
-public class StaffRepository : IRepository<Employee>
+public class EmploeeRepository : IRepository<Employee>
 {
     IConnectionHelper<SQLiteConnection> _connectionHelper;
 
-    const string TABLE = "Staff";
+    const string TABLE = "Employee";
 
-    public StaffRepository(IConnectionHelper<SQLiteConnection> connectionHelper)
+    public EmploeeRepository(IConnectionHelper<SQLiteConnection> connectionHelper)
     {
         _connectionHelper = connectionHelper;
     }

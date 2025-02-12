@@ -6,7 +6,16 @@ using Ticket.Console.Repository.SQLite;
 using Ticket.Console.Screens;
 using Ticket.Console.Platform;
 using TECHCOOL.UI;
+using TicketLib.Platform;
 
-ConsolePlatform platform = new("Data Source=:memory:");
-MainScreen screen = new(platform);
+ConsolePlatform platform = new("Data Source=ticketSystem.db");
+string sqlFilePath = System.IO.File.ReadAllText("../TicketLib/DbScripts/testTables.sql");
+
+ConsoleDatabase database = (ConsoleDatabase) platform.Database;
+if (!File.Exists("ticketSystem.db"))
+{
+    database.ExecuteNonQuery(sqlFilePath);
+}
+// MainScreen screen = new(platform);
+PersonListPage screen = new(platform);
 Screen.Display(screen);
