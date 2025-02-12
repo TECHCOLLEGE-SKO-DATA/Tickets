@@ -209,3 +209,6 @@ function openEventModal(eventElement) {
   eventModal.show();
 }
 
+document.getElementById("theme-toggle").addEventListener("click", function () {
+  document.body.classList.toggle("dark-mode");
+});
