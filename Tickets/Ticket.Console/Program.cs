@@ -17,5 +17,5 @@ if (!File.Exists("ticketSystem.db"))
     database.ExecuteNonQuery(sqlFilePath);
 }
 // MainScreen screen = new(platform);
-PersonListPage screen = new(platform);
+MainScreen screen = new(platform);
 Screen.Display(screen);
