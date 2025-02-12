@@ -43,7 +43,7 @@ public class PersonRepositoryTests
             FirstName = "Remo",
             MiddleName = "",
             LastName = "Lademann",
-            Address = 1,
+            AddressId = 1,
             RegisterdDate = DateTime.Now,
             PreferredContactMethod = 0
         };
@@ -58,7 +58,7 @@ public class PersonRepositoryTests
             FirstName = "Ella",
             MiddleName = "",
             LastName = "Stick",
-            Address = 0, //Does not exist
+            AddressId = 0, //Does not exist
             RegisterdDate = DateTime.Now,
             PreferredContactMethod = 0
         };
@@ -92,7 +92,7 @@ public class PersonRepositoryTests
             FirstName = "Remo",
             MiddleName = "",
             LastName = "Lademann",
-            Address = 1,
+            AddressId = 1,
             RegisterdDate = DateTime.Now,
             PreferredContactMethod = 0
         };
@@ -136,7 +136,7 @@ public class PersonRepositoryTests
             //Update Konrad Sommers address
             konrad = repo.GetById(1);
             Assert.NotNull(konrad);
-            Assert.NotEqual(1, konrad.Address);
+            Assert.NotEqual(1, konrad.AddressId);
         }
 
         string firstname = "Mary", middlename = "Anne", lastname = "Hasmark";
@@ -150,7 +150,7 @@ public class PersonRepositoryTests
             konrad.MiddleName = middlename;
             konrad.LastName = lastname;
             konrad.RegisterdDate = now;
-            konrad.Address = 1;
+            konrad.AddressId = 1;
             repo.Update(konrad);
 
             //Get Konrad and see the model was updated

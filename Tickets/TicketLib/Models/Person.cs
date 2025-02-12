@@ -10,7 +10,7 @@ public class Person : BaseModel, IModel
 
     public string LastName { get; set; } = " ";
 
-    public int Address { get; set; } //(FK)
+    public int AddressId { get; set; } //(FK)
 
     public DateTime RegisterdDate { get; set; }
 
