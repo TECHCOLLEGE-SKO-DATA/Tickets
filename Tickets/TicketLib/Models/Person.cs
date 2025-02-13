@@ -12,7 +12,7 @@ public class Person : BaseModel, IModel
 
     public int AddressId { get; set; } //(FK)
 
-    public DateTime RegisterdDate { get; set; }
+    public DateTime RegisteredDate  { get; set; }
 
     public int PreferredContactMethod { get; set; } //(PK)
 

@@ -44,7 +44,7 @@ public class PersonRepositoryTests
             MiddleName = "",
             LastName = "Lademann",
             AddressId = 1,
-            RegisterdDate = DateTime.Now,
+            RegisteredDate  = DateTime.Now,
             PreferredContactMethod = 0
         };
         repo.Add(remo);
@@ -59,7 +59,7 @@ public class PersonRepositoryTests
             MiddleName = "",
             LastName = "Stick",
             AddressId = 0, //Does not exist
-            RegisterdDate = DateTime.Now,
+            RegisteredDate  = DateTime.Now,
             PreferredContactMethod = 0
         };
 
@@ -93,7 +93,7 @@ public class PersonRepositoryTests
             MiddleName = "",
             LastName = "Lademann",
             AddressId = 1,
-            RegisterdDate = DateTime.Now,
+            RegisteredDate  = DateTime.Now,
             PreferredContactMethod = 0
         };
         
@@ -149,7 +149,7 @@ public class PersonRepositoryTests
             konrad.FirstName = firstname;
             konrad.MiddleName = middlename;
             konrad.LastName = lastname;
-            konrad.RegisterdDate = now;
+            konrad.RegisteredDate = now;
             konrad.AddressId = 1;
             repo.Update(konrad);
 
@@ -159,7 +159,7 @@ public class PersonRepositoryTests
             Assert.Equal(firstname, konrad.FirstName);
             Assert.Equal(middlename, konrad.MiddleName);
             Assert.Equal(lastname, konrad.LastName);
-            Assert.Equal(now, konrad.RegisterdDate);
+            Assert.Equal(now, konrad.RegisteredDate);
         }
     }
 }

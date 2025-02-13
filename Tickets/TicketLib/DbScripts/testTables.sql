@@ -32,6 +32,8 @@ CREATE TABLE IF NOT EXISTS Employee (
     PersonId INTEGER PRIMARY KEY,
     Username VARCHAR(16) NOT NULL UNIQUE,
     Password CHAR(64) NOT NULL,
+    IsDriversLicenceValid TINYINT NOT NULL,
+    ProfilePicture VARCHAR(255),
     FOREIGN KEY (PersonId) REFERENCES Person(PersonId)
 );
 
