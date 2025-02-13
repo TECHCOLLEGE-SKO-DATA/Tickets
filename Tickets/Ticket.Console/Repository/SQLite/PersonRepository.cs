@@ -30,7 +30,7 @@ public class PersonRepository : IRepository<Person>
                 FirstName = reader.GetString(1),
                 MiddleName = reader.GetString(2),
                 LastName = reader.GetString(3),
-                RegisterdDate = reader.GetDateTime(4),
+                RegisteredDate  = reader.GetDateTime(4),
                 AddressId = reader.GetInt32(5),
                 PreferredContactMethod = reader.GetInt32(6),
             };
@@ -53,7 +53,7 @@ public class PersonRepository : IRepository<Person>
                 FirstName = reader.GetString(1),
                 MiddleName = reader.GetString(2),
                 LastName = reader.GetString(3),
-                RegisterdDate = reader.GetDateTime(4),
+                RegisteredDate  = reader.GetDateTime(4),
                 AddressId = reader.GetInt32(5),
                 PreferredContactMethod = reader.GetInt32(6),
             };
@@ -73,7 +73,7 @@ public class PersonRepository : IRepository<Person>
         command.Parameters.AddWithValue("@lastName", model.LastName);
 
         // Sørg for at formatere RegisteredDate korrekt
-        command.Parameters.AddWithValue("@registeredDate", model.RegisterdDate.ToString("yyyy-MM-dd HH:mm:ss"));
+        command.Parameters.AddWithValue("@registeredDate", model.RegisteredDate.ToString("yyyy-MM-dd HH:mm:ss"));
 
         command.Parameters.AddWithValue("@addressId", model.AddressId);
         command.Parameters.AddWithValue("@preferredContactMethodId", model.PreferredContactMethod);
@@ -94,7 +94,7 @@ public class PersonRepository : IRepository<Person>
         command.Parameters.AddWithValue("@firstName", model.FirstName);
         command.Parameters.AddWithValue("@middleName", model.MiddleName);
         command.Parameters.AddWithValue("@lastName", model.LastName);
-        command.Parameters.AddWithValue("@registeredDate", model.RegisterdDate);
+        command.Parameters.AddWithValue("@registeredDate", model.RegisteredDate);
         command.Parameters.AddWithValue("@addressId", model.AddressId);
         command.Parameters.AddWithValue("@preferredContactMethodId", model.PreferredContactMethod);
         command.Parameters.AddWithValue("@id", model.PersonId);

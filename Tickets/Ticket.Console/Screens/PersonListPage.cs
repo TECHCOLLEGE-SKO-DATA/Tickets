@@ -21,7 +21,7 @@ public class PersonListPage : TicketScreen
         list.AddColumn("FirstName", "FirstName");
         list.AddColumn("MiddleName", "MiddleName");
         list.AddColumn("LastName", "LastName");
-        list.AddColumn("RegisterdDate", "RegisterdDate");
+        list.AddColumn("RegisteredDate", "RegisteredDate");
         list.AddColumn("PreferredContactMethod", "PreferredContactMethod");
         list.AddColumn("Address", "Address");  // this needs to be made with the service layer... Because its a FK
 
