@@ -18,6 +18,7 @@ public class MainScreen : TicketScreen
         Menu menu = new Menu();
         menu.Add( new EditPersonScreen(_platform) );
         menu.Add( new PersonListPage(_platform) );
+        menu.Add( new CityListPage(_platform) );
         menu.Add( new AddressListPage(_platform) );
         menu.Add( new IncidentListPage(_platform) );
         Screen.Display(menu);
