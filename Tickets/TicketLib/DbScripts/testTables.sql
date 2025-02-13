@@ -52,13 +52,16 @@ CREATE TABLE IF NOT EXISTS ContactMethod (
 
 CREATE TABLE IF NOT EXISTS Incident (
     IncidentId INTEGER PRIMARY KEY AUTOINCREMENT,
+    CustomerId INT NOT NULL, 
+    AddressId INT,
     Status TINYINT NOT NULL,
     IssueDate DATETIME NOT NULL,
     IssueDescription TEXT NOT NULL,
     CreatedBy INT NOT NULL,
     ResolutionDate DATETIME,
     ResolutionDescription TEXT,
-    FOREIGN KEY (CreatedBy) REFERENCES Employee(PersonId)
+    FOREIGN KEY (CreatedBy) REFERENCES Employee(PersonId),
+    FOREIGN KEY (CustomerId) REFERENCES Customer(PersonId) 
 );
 
 CREATE TABLE IF NOT EXISTS IncidentStatus (
