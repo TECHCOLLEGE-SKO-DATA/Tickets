@@ -50,7 +50,7 @@ public class IncidentsService : IIncidentsService
                 i.IncidentId, i.Status, i.IssueDate, i.IssueDescription, i.CreatedBy, 
                 i.ResolutionDate, i.ResolutionDescription, a.AddressId, a.Street, a.Number, 
                 a.CityId, c.ZipCode, c.Name, cust.FirstName, cust.MiddleName, 
-                cust.LastName, cust.AddressId, cust.RegisteredDate, cust.PreferredContactMethodId
+                cust.LastName, cust.AddressId, cust.RegisteredDate, cust.PreferredContactMethodId,
 
                 i.AddressId, i.CustomerId
                 FROM Incident AS i
@@ -63,39 +63,41 @@ public class IncidentsService : IIncidentsService
                     ";
         if (onlyOpen)
         {
-            sql += $"WHERE i.ResolutionDate = '{DateTime.MinValue}'";
+            sql += $"WHERE i.ResolutionDate is null";
         }
-
+        
         command.CommandText = sql;
         SQLiteDataReader reader = command.ExecuteReader();
         while (reader.Read())
         {
             Incident incident = new();
+            Address address = new();
+            City city = new();
+            Customer customer = new();
+
             incident.IncidentId = reader.GetInt32(0);
             incident.Status = reader.GetByte(1);
             incident.IssueDate = reader.GetDateTime(2);
             incident.IssueDescription = reader.GetString(3);
             incident.CreatedBy = reader.GetInt32(4);
-            incident.ResolutionDate = reader.GetDateTime(5);
-            incident.ResolutionDescription = reader.GetString(6);
 
-            Address address = new();
+            incident.ResolutionDate = reader.IsDBNull(5) ? DateTime.MinValue : reader.GetDateTime(5);
+            incident.ResolutionDescription = reader.IsDBNull(6) ? "" : reader.GetString(6);          
             address.AddressId = reader.GetInt32(7);
             address.Street = reader.GetString(8);
             address.Number = reader.GetString(9);
-            address.CityId = reader.GetInt16(10);
 
-            City city = new City();
+            address.CityId = reader.GetInt16(10);           
             city.CityId = reader.GetInt16(10);
             city.ZipCode = reader.GetString(11);
             city.Name = reader.GetString(12);
-
-            Customer customer = new Customer();
             customer.FirstName = reader.GetString(13);
             customer.MiddleName = reader.GetString(14);
+
             customer.LastName = reader.GetString(15);
-            customer.RegisterdDate = reader.GetDateTime(16);
-            customer.PreferredContactMethod = reader.GetInt16(17);
+            customer.AddressId = reader.GetInt32(16); 
+            customer.RegisterdDate = reader.GetDateTime(17);
+            customer.PreferredContactMethod = reader.GetInt16(18);
 
             results.Add(incident);
         }

@@ -95,7 +95,31 @@ CREATE TABLE IF NOT EXISTS IncidentLog (
 
     ";
 
+    string _sqlInserts = @"
     
+    INSERT INTO city (zipCode, name) VALUES
+        (9000, 'Aalborg'),
+        (9220, 'Aalborg Øst')
+        ;
+    INSERT INTO address (street, number, cityId) VALUES
+        ('Øster Uttrupvej', '5', 1),
+        ('Struervej', '70', 2)
+        ;
+	INSERT INTO person (firstName, middleName, lastName, registeredDate, addressId, preferredContactMethodId) VALUES 
+        ('Konrad', '', 'Sommer', '2010-03-29 12:09:12', 2, 0),
+        ('Steen', 'Sachs', 'Pappy', '2010-03-29 12:09:12', 1, 0),
+        ('Anne', '', 'Dam', '2010-06-01 08:54:36', 2, 0)
+        ;
+	INSERT INTO Customer (PersonId) VALUES (2)
+	;
+	INSERT INTO Employee (PersonId, Username, Password) VALUES (1, 'Konrad', 'konrad')
+	;
+    INSERT INTO Incident(Status, AddressId, CustomerId, IssueDate, IssueDescription, CreatedBy, ResolutionDate, ResolutionDescription) VALUES
+        (0, 1, 2, '2025-02-12 14:46:00', 'Oy beltalowda, we gun pashang naw, ke?', 1, null, '' ),
+        (1, 2, 2, '2025-02-10 14:46:00', 'Aye shiver me timbers. You scallywag aint poppin savvy?', 1, '2025-02-12 14:46:00', 'Shot in his guts with his eye. Twas a dreadful sight. Prey thou shall never see it.' )
+    ;
+
+    ";
     string _connectionString = "";
     string _tempFile = "";
     public MockSQLiteConnectionHelper(string connectionString)
@@ -111,6 +135,9 @@ CREATE TABLE IF NOT EXISTS IncidentLog (
         using SQLiteConnection conn = GetConnection();
         var cmd = conn.CreateCommand();
         cmd.CommandText = _sql;
+        cmd.ExecuteNonQuery();    
+        cmd = conn.CreateCommand();
+        cmd.CommandText = _sqlInserts;
         cmd.ExecuteNonQuery();    
     }
     public SQLiteConnection GetConnection()
