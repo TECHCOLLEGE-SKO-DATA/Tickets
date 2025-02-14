@@ -60,13 +60,16 @@ CREATE TABLE IF NOT EXISTS ContactMethod (
 
 CREATE TABLE IF NOT EXISTS Incident (
     IncidentId INTEGER PRIMARY KEY AUTOINCREMENT,
+    CustomerId INT NOT NULL, 
+    AddressId INT,
     Status TINYINT NOT NULL,
     IssueDate DATETIME NOT NULL,
     IssueDescription TEXT NOT NULL,
     CreatedBy INT NOT NULL,
     ResolutionDate DATETIME,
     ResolutionDescription TEXT,
-    FOREIGN KEY (CreatedBy) REFERENCES Employee(PersonId)
+    FOREIGN KEY (CreatedBy) REFERENCES Employee(PersonId),
+    FOREIGN KEY (CustomerId) REFERENCES Customer(PersonId) 
 );
 
 CREATE TABLE IF NOT EXISTS IncidentStatus (
@@ -90,25 +93,6 @@ CREATE TABLE IF NOT EXISTS IncidentLog (
     FOREIGN KEY (ChangedBy) REFERENCES Person(PersonId)
 );
 
-    INSERT INTO person (firstName, middleName, lastName, registeredDate, addressId, preferredContactMethodId) VALUES 
-        ('Konrad', '', 'Sommer', '2010-03-29 12:09:12', 2, 0),
-        ('Steen', 'Sachs', 'Pappy', '2010-03-29 12:09:12', 1, 0),
-        ('Anne', '', 'Dam', '2010-06-01 08:54:36', 2, 0)
-    ;
-    
-    INSERT INTO city (zipCode, name) VALUES
-        (9000, 'Aalborg'),
-        (9220, 'Aalborg Øst')
-    ;
-
-    INSERT INTO address (street, number, cityId) VALUES
-        ('Øster Uttrupvej', '5', 1),
-        ('Struervej', '70', 2)
-    ;
-
-    INSERT INTO Incident(Status, IssueDate, IssueDescription, CreatedBy, ResolutionDate, ResolutionDescription) VALUES
-        (0, '12-02-2025 14:46:00', 'Oy beltalowda, we gun pashang naw, ke?', 1, '00-00-0000 00:00:00', '' ),
-        (1, '10-02-2025 14:46:00', 'Aye shiver me timbers. You scallywag aint poppin savvy?', 1, '12-02-2025 14:46:00', 'Shot in his guts with his eye. Twas a dreadful sight. Prey thou shall never see it.' )
     ";
 
     

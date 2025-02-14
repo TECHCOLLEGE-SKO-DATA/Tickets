@@ -51,6 +51,8 @@ public class IncidentsService : IIncidentsService
                 i.ResolutionDate, i.ResolutionDescription, a.AddressId, a.Street, a.Number, 
                 a.CityId, c.ZipCode, c.Name, cust.FirstName, cust.MiddleName, 
                 cust.LastName, cust.AddressId, cust.RegisteredDate, cust.PreferredContactMethodId
+
+                i.AddressId, i.CustomerId
                 FROM Incident AS i
                     LEFT JOIN Address AS a 
                         ON i.AddressId = a.AddressId
@@ -61,7 +63,7 @@ public class IncidentsService : IIncidentsService
                     ";
         if (onlyOpen)
         {
-            sql += $"WHERE i.ResolutionDate = {DateTime.MinValue}";
+            sql += $"WHERE i.ResolutionDate = '{DateTime.MinValue}'";
         }
 
         command.CommandText = sql;
