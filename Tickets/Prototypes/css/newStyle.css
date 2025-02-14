@@ -472,7 +472,6 @@ main p {
 
 /* Tidsceller */
 .time-slot {
-    background-color: #e9ecef;
     border: 1px solid #ddd;
     text-align: center;
     font-weight: bold;
@@ -507,14 +506,12 @@ main p {
 /* Tomme celler */
 .empty {
     border: 1px solid #ddd;
-    background-color: white;
 }
 
 /* Liste over ansvarlige personer */
 .responsible-list {
     margin-top: 20px;
     width: 100%;
-    background-color: #f8f9fa;
     padding: 15px;
     border-radius: 5px;
 }
