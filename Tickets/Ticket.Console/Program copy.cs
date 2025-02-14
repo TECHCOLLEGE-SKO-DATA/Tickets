@@ -7,6 +7,8 @@ using Ticket.Console.Screens;
 using Ticket.Console.Platform;
 using TECHCOOL.UI;
 using TicketLib.Platform;
+using Ticket.Console.Services.SQLite;
+using TicketLib.Repository;
 
 ConsolePlatform platform = new("Data Source=ticketSystem.db");
 string sqlFilePath = System.IO.File.ReadAllText("../TicketLib/DbScripts/testTables.sql");
@@ -17,5 +19,9 @@ if (!File.Exists("ticketSystem.db"))
     database.ExecuteNonQuery(sqlFilePath);
 }
 // MainScreen screen = new(platform);
-MainScreen screen = new(platform);
+PersonListPage screen = new(platform);
+
+ConnectionHelper<SQLiteConnection> helper = new("Data Source=ticketSystem.db");
+IncidentsService service = new(helper);
+service.GetOpenIncidents();
 Screen.Display(screen);

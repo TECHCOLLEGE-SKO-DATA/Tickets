@@ -31,7 +31,7 @@ public class PersonRepository : IRepository<Person>
                 MiddleName = reader.GetString(2),
                 LastName = reader.GetString(3),
                 RegisterdDate = reader.GetDateTime(4),
-                Address = reader.GetInt32(5),
+                AddressId = reader.GetInt32(5),
                 PreferredContactMethod = reader.GetInt32(6),
             };
             result.Add(p);
@@ -54,7 +54,7 @@ public class PersonRepository : IRepository<Person>
                 MiddleName = reader.GetString(2),
                 LastName = reader.GetString(3),
                 RegisterdDate = reader.GetDateTime(4),
-                Address = reader.GetInt32(5),
+                AddressId = reader.GetInt32(5),
                 PreferredContactMethod = reader.GetInt32(6),
             };
             return p;
@@ -75,7 +75,7 @@ public class PersonRepository : IRepository<Person>
         // Sørg for at formatere RegisteredDate korrekt
         command.Parameters.AddWithValue("@registeredDate", model.RegisterdDate.ToString("yyyy-MM-dd HH:mm:ss"));
 
-        command.Parameters.AddWithValue("@addressId", model.Address);
+        command.Parameters.AddWithValue("@addressId", model.AddressId);
         command.Parameters.AddWithValue("@preferredContactMethodId", model.PreferredContactMethod);
         command.ExecuteNonQuery();
     }
@@ -95,7 +95,7 @@ public class PersonRepository : IRepository<Person>
         command.Parameters.AddWithValue("@middleName", model.MiddleName);
         command.Parameters.AddWithValue("@lastName", model.LastName);
         command.Parameters.AddWithValue("@registeredDate", model.RegisterdDate);
-        command.Parameters.AddWithValue("@addressId", model.Address);
+        command.Parameters.AddWithValue("@addressId", model.AddressId);
         command.Parameters.AddWithValue("@preferredContactMethodId", model.PreferredContactMethod);
         command.Parameters.AddWithValue("@id", model.PersonId);
         command.ExecuteNonQuery();
