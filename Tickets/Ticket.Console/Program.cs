@@ -19,7 +19,7 @@ if (!File.Exists("ticketSystem.db"))
     database.ExecuteNonQuery(sqlFilePath);
 }
 // MainScreen screen = new(platform);
-PersonListPage screen = new(platform);
+IncidentListPage screen = new(platform);
 
 ConnectionHelper<SQLiteConnection> helper = new("Data Source=ticketSystem.db");
 IncidentsService service = new(helper);

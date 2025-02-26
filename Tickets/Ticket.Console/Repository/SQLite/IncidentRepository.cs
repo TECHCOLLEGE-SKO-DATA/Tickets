@@ -33,9 +33,18 @@ public class IncidentRepository : IRepository<Incident>
                 IssueDate = reader.GetDateTime(2),
                 IssueDescription = reader.GetString(3),
                 CreatedBy = reader.GetInt32(4),
-                ResolutionDate = reader.GetDateTime(5),
+                
                 ResolutionDescription = reader.GetString(6),
             };
+
+            try 
+            {
+                i.ResolutionDate = reader.GetDateTime(5);
+            }
+            catch (InvalidCastException)
+            {
+                i.ResolutionDate = null;
+            }
             result.Add(i);
         }
         return result;
