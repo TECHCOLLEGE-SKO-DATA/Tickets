@@ -16,6 +16,7 @@ public class AddressRepository : IRepository<Address>
 
     public IEnumerable<Address> GetAll() 
     {
+        CityRepository cityRepository = new(_connectionHelper);
         using SQLiteConnection conn = _connectionHelper.GetConnection();
         SQLiteCommand command = conn.CreateCommand();
         command.CommandText = $"SELECT AddressId, Street, Number,CityId FROM {TABLE}";
@@ -27,7 +28,7 @@ public class AddressRepository : IRepository<Address>
                 AddressId = reader.GetInt32(0),
                 Street = reader.GetString(1),
                 Number = reader.GetString(2),
-                CityId = (short)reader.GetInt32(3),
+                City = cityRepository.GetById((short)reader.GetInt32(3)),
             };
             result.Add(p);
         }
@@ -35,6 +36,7 @@ public class AddressRepository : IRepository<Address>
     }
     public Address? GetById(int id) 
     {
+        CityRepository cityRepository = new(_connectionHelper);
         using SQLiteConnection conn = _connectionHelper.GetConnection();
         SQLiteCommand command = conn.CreateCommand();
         command.CommandText = $"SELECT AddressId, Street, Number,CityId FROM {TABLE} WHERE AddressId=@id";
@@ -45,7 +47,7 @@ public class AddressRepository : IRepository<Address>
                 AddressId = reader.GetInt32(0),
                 Street = reader.GetString(1),
                 Number = reader.GetString(2),
-                CityId = (short)reader.GetInt32(3),
+                City = cityRepository.GetById((short)reader.GetInt32(3)),
             };
             return p;
         }
@@ -76,6 +78,7 @@ public class AddressRepository : IRepository<Address>
                 WHERE AddressId=@id";
         command.Parameters.AddWithValue("@Street", model.Street);
         command.Parameters.AddWithValue("@Number", model.Number);
+        command.Parameters.AddWithValue("@CityId", model.CityId);
         command.Parameters.AddWithValue("@CityId", model.CityId);
         command.ExecuteNonQuery();
     }

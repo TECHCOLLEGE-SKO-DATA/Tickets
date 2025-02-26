@@ -43,7 +43,7 @@ public class ContactMethodRepository : IRepository<ContactMethod>
     {
         using SQLiteConnection conn = _connectionHelper.GetConnection();
         SQLiteCommand command = conn.CreateCommand();
-        command.CommandText = $"SELECT ContactMethodId, PersonId, ContactInfoType, Value,  FROM {TABLE} WHERE ContactMethodId=@id";
+        command.CommandText = $"SELECT ContactMethodId, PersonId, ContactInfoType, Value FROM {TABLE} WHERE ContactMethodId=@id";
         command.Parameters.AddWithValue("@id", id);
         SQLiteDataReader reader = command.ExecuteReader();
         if (reader.Read())

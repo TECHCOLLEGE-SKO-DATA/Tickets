@@ -20,17 +20,17 @@ public class AddressRepositoryTests
 
         Assert.NotNull(techcollege);
         Assert.Equal(1, techcollege.CityId);
-        Assert.Equal("Øster Uttrupvej", techcollege.Street);
+        Assert.Equal("Oester Uttrupvej", techcollege.Street);
         Assert.Equal("5", techcollege.Number);
         Assert.Equal(1, techcollege.CityId);
 
        
-        Address? aalborgøst = repo.GetById(2);
-        Assert.NotNull(aalborgøst);
-        Assert.Equal(2, aalborgøst.CityId);
-        Assert.Equal("Struervej", aalborgøst.Street);
-        Assert.Equal("70", aalborgøst.Number);
-        Assert.Equal(2, aalborgøst.CityId);
+        Address? aalborgOest = repo.GetById(2);
+        Assert.NotNull(aalborgOest);
+        Assert.Equal(2, aalborgOest.CityId);
+        Assert.Equal("Struervej", aalborgOest.Street);
+        Assert.Equal("70", aalborgOest.Number);
+        Assert.Equal(2, aalborgOest.CityId);
 
 
 
@@ -42,12 +42,13 @@ public class AddressRepositoryTests
     {
         using MockSQLiteConnectionHelper helper = new();
         AddressRepository repo = new(helper);
+        CityRepository cityRepository = new(helper);
         Address cambodian = new()
         {
             Street = "Cambodian",
             Number = "9999",
             AddressId = 1,
-            CityId = 1,
+            City = cityRepository.GetById(1),
 
         };
         repo.Add(cambodian);
@@ -63,7 +64,7 @@ public class AddressRepositoryTests
             Street = "New Jercy",
             Number = "12",
             AddressId = 1,
-            CityId = 0, 
+            City = null
             
         };
 
@@ -87,6 +88,7 @@ public class AddressRepositoryTests
     {
         using MockSQLiteConnectionHelper helper = new();
         AddressRepository repo = new(helper);
+        CityRepository cityRepository = new(helper);
 
         List<Address> allCitys = (List<Address>)repo.GetAll();
 
@@ -98,7 +100,7 @@ public class AddressRepositoryTests
             Street = "Cambodian",
             Number = "9999",
             AddressId = 1,
-            CityId = 2,
+            City = cityRepository.GetById(2),
         };
 
         repo.Add(remo);
@@ -145,16 +147,16 @@ public class AddressRepositoryTests
             Assert.NotEqual(2, aalborg.CityId);
         }
 
-        string street = "Aalborg Øst", number = "9000";
+        string street = "Aalborg Oest", number = "9000";
         
         using (MockSQLiteConnectionHelper conn = new())
         {
             AddressRepository repo = new(conn);
-
+            CityRepository cityRepository = new(conn);
            
             aalborg.Street = street;
             aalborg.Number = number;
-            aalborg.CityId = 1;
+            aalborg.City = cityRepository.GetById(1);
             aalborg.AddressId = 1;
             repo.Update(aalborg);
 

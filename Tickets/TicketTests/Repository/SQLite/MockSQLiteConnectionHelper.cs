@@ -99,10 +99,10 @@ CREATE TABLE IF NOT EXISTS IncidentLog (
     
     INSERT INTO city (zipCode, name) VALUES
         (9000, 'Aalborg'),
-        (9220, 'Aalborg Øst')
+        (9220, 'Aalborg Oest')
         ;
     INSERT INTO address (street, number, cityId) VALUES
-        ('Øster Uttrupvej', '5', 1),
+        ('Oester Uttrupvej', '5', 1),
         ('Struervej', '70', 2)
         ;
 	INSERT INTO person (firstName, middleName, lastName, registeredDate, addressId, preferredContactMethodId) VALUES 

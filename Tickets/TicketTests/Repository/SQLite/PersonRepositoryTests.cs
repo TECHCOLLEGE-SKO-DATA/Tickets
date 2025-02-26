@@ -6,6 +6,7 @@ namespace TicketTests.Repository.SQLite;
 
 public class PersonRepositoryTests
 {
+
     [Fact]
     public void PersonRepository_GetByIdTests()
     {
@@ -39,13 +40,15 @@ public class PersonRepositoryTests
     {
         using MockSQLiteConnectionHelper helper = new();
         PersonRepository repo = new(helper);
+        AddressRepository addressRepository = new(helper);
+        ContactMethodRepository contactMethodRepository = new(helper);
         Person remo = new () {
             FirstName = "Remo",
             MiddleName = "",
             LastName = "Lademann",
-            AddressId = 1,
+            Address = addressRepository.GetById(1),
             RegisterdDate = DateTime.Now,
-            PreferredContactMethod = 0
+            //PreferredContactMethod = contactMethodRepository.GetById(0);
         };
         repo.Add(remo);
         Person? remoAgain = repo.GetById(4);
@@ -58,9 +61,9 @@ public class PersonRepositoryTests
             FirstName = "Ella",
             MiddleName = "",
             LastName = "Stick",
-            AddressId = 0, //Does not exist
+            Address = null, //Does not exist
             RegisterdDate = DateTime.Now,
-            PreferredContactMethod = 0
+            PreferredContactMethod = null
         };
 
         try {
@@ -82,6 +85,7 @@ public class PersonRepositoryTests
     {
         using MockSQLiteConnectionHelper helper = new();
         PersonRepository repo = new(helper);
+        AddressRepository addressRepository = new(helper);
 
         List<Person> allPersons = (List<Person>) repo.GetAll();
 
@@ -92,9 +96,9 @@ public class PersonRepositoryTests
             FirstName = "Remo",
             MiddleName = "",
             LastName = "Lademann",
-            AddressId = 1,
+            Address = addressRepository.GetById(1),
             RegisterdDate = DateTime.Now,
-            PreferredContactMethod = 0
+            PreferredContactMethod = null
         };
         
         repo.Add(remo);
@@ -144,13 +148,14 @@ public class PersonRepositoryTests
 
         using (MockSQLiteConnectionHelper conn = new()) {
             PersonRepository repo = new(conn);
+            AddressRepository addressRepository = new(conn);
 
             //Update Konrad Sommers address
             konrad.FirstName = firstname;
             konrad.MiddleName = middlename;
             konrad.LastName = lastname;
             konrad.RegisterdDate = now;
-            konrad.AddressId = 1;
+            konrad.Address = addressRepository.GetById(1);
             repo.Update(konrad);
 
             //Get Konrad and see the model was updated

@@ -60,7 +60,7 @@ public class IncidentsService : IIncidentsService
                     LEFT JOIN Person as cust
                         ON i.CustomerId = cust.PersonId
                     LEFT JOIN ContactMethod as con
-                        ON i.PersonId = con.PersonId
+                        ON i.CustomerId = con.PersonId
                     ";
         if (onlyOpen)
         {
