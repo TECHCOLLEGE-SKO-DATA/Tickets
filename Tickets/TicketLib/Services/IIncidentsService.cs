@@ -11,9 +11,8 @@ public interface IIncidentsService
     /// Creates a new incident and person with adress and contact method if these doesn't exist yet
     /// </summary>
     /// <param name="incident"></param>
-    /// <param name="person"></param>
-    public void CreateNewIncident(Incident incident, Person person);
+    public void CreateNewIncident(Incident incident);
 
-    public IEnumerable<Incident> GetOpenIncidents();
-    public IEnumerable<Incident> GetAllIncidents(); 
+    public IEnumerable<Incident> GetOpenIncidents(int limit = 30, int offset = 0);
+    public IEnumerable<Incident> GetAllIncidents(int limit = 30, int offset = 0); 
 }

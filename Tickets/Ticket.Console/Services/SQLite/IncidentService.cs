@@ -24,27 +24,26 @@ public class IncidentsService : IIncidentsService
         _cityRepository = new CityRepository(connection);
         
     }
-    public void CreateNewIncident(Incident incident, Person person)
+    public void CreateNewIncident(Incident incident)
     {
-        // if (address == null && person.Address != 0)
-        // {
-        //     address = _addressRepository.GetById(person.Address);
-        // }
-        
-        Person? existingPerson = _personRepository.GetById(person.PersonId);
-        if (existingPerson == null)
+              
+        Person? existingPerson = _personRepository.GetById(incident?.Customer?.PersonId ?? 0);
+        if (incident?.Customer != null && existingPerson == null)
         {
-            _personRepository.Add(person);
+            _personRepository.Add(incident.Customer);
         }
-        
     }
 
-    IEnumerable<Incident> GetIncidents(bool onlyOpen)
+    IEnumerable<Incident> GetIncidents(int limit, int offset, bool onlyOpen)
     {
         List<Incident> results = new();
         using SQLiteConnection conn = _connection.GetConnection();
 
         SQLiteCommand command = conn.CreateCommand();
+    //     ContactMethodId INTEGER PRIMARY KEY AUTOINCREMENT,
+    // PersonId INT NOT NULL,
+    // ContactInfoType INT NOT NULL,
+    // Value VARCHAR(255) NOT NULL,
         string sql = @"
             SELECT 
                 i.IncidentId, i.Status, i.IssueDate, i.IssueDescription, i.CreatedBy, 
@@ -52,7 +51,7 @@ public class IncidentsService : IIncidentsService
                 a.CityId, c.ZipCode, c.Name, cust.FirstName, cust.MiddleName, 
                 cust.LastName, cust.AddressId, cust.RegisteredDate, cust.PreferredContactMethodId,
 
-                i.AddressId, i.CustomerId
+                i.AddressId, i.CustomerId, con.ContactInfoType, con.Value
                 FROM Incident AS i
                     LEFT JOIN Address AS a 
                         ON i.AddressId = a.AddressId
@@ -60,50 +59,60 @@ public class IncidentsService : IIncidentsService
                         ON c.CityId = a.CityId
                     LEFT JOIN Person as cust
                         ON i.CustomerId = cust.PersonId
+                    LEFT JOIN ContactMethod as con
+                        ON i.PersonId = con.PersonId
                     ";
         if (onlyOpen)
         {
             sql += $"WHERE i.ResolutionDate is null";
         }
+        sql += "LIMIT @offset, @limit";
+
+        command.Parameters.AddWithValue("@offset", offset);
+        command.Parameters.AddWithValue("@limit", limit);
         
         command.CommandText = sql;
         SQLiteDataReader reader = command.ExecuteReader();
         while (reader.Read())
         {
             Incident incident = new();
-            Address address = new();
-            City city = new();
-            Customer customer = new();
+            incident.Address = new();
+            incident.Address.City = new();
+            incident.Customer = new();
+            incident.Customer.PreferredContactMethod = new();
 
             incident.IncidentId = reader.GetInt32(0);
             incident.Status = reader.GetByte(1);
             incident.IssueDate = reader.GetDateTime(2);
             incident.IssueDescription = reader.GetString(3);
-            incident.CreatedBy = reader.GetInt32(4);
+            //incident.CreatedBy = reader.GetInt32(4);
 
             incident.ResolutionDate = reader.IsDBNull(5) ? DateTime.MinValue : reader.GetDateTime(5);
             incident.ResolutionDescription = reader.IsDBNull(6) ? "" : reader.GetString(6);          
-            address.AddressId = reader.GetInt32(7);
-            address.Street = reader.GetString(8);
-            address.Number = reader.GetString(9);
+            incident.Address.AddressId = reader.GetInt32(7);
+            incident.Address.Street = reader.GetString(8);
+            incident.Address.Number = reader.GetString(9);
 
-            address.CityId = reader.GetInt16(10);           
-            city.CityId = reader.GetInt16(10);
-            city.ZipCode = reader.GetString(11);
-            city.Name = reader.GetString(12);
-            customer.FirstName = reader.GetString(13);
-            customer.MiddleName = reader.GetString(14);
+            //incident.Address.CityId = reader.GetInt16(10);           
+            incident.Address.City.CityId = reader.GetInt16(10);
+            incident.Address.City.ZipCode = reader.GetString(11);
+            incident.Address.City.Name = reader.GetString(12);
+            incident.Customer.FirstName = reader.GetString(13);
+            incident.Customer.MiddleName = reader.GetString(14);
 
-            customer.LastName = reader.GetString(15);
-            customer.AddressId = reader.GetInt32(16); 
-            customer.RegisterdDate = reader.GetDateTime(17);
-            customer.PreferredContactMethod = reader.GetInt16(18);
+            incident.Customer.LastName = reader.GetString(15);
+            //incident.Customer.AddressId = reader.GetInt32(16); 
+            incident.Customer.RegisterdDate = reader.GetDateTime(17);
+            incident.Customer.PreferredContactMethod.ContactMethodId = reader.GetInt16(18);
+            incident.Customer.PreferredContactMethod.ContactInfoType = reader.GetInt16(19);
+            incident.Customer.PreferredContactMethod.Value = reader.GetString(20);
+
 
             results.Add(incident);
         }
         return results;
     }
 
-    public IEnumerable<Incident> GetAllIncidents() => GetIncidents(false);
-    public IEnumerable<Incident> GetOpenIncidents() => GetIncidents(true);
+    public IEnumerable<Incident> GetAllIncidents(int limit = 30, int offset = 0) => GetIncidents(limit, offset, false);
+    public IEnumerable<Incident> GetOpenIncidents(int limit = 30, int offset = 0) => GetIncidents(limit, offset, true);
 }

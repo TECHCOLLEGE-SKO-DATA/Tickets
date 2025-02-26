@@ -10,7 +10,8 @@ public class Address : BaseModel, IModel
 
     public string Number { get; set; } = " ";
 
-    public short CityId { get; set; } //(FK)
+    public short CityId => City?.CityId ?? 0; //(FK)
+    public City? City { get; set; }
 
     public string Validate()
     {

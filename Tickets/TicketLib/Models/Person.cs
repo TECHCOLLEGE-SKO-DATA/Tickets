@@ -10,11 +10,14 @@ public class Person : BaseModel, IModel
 
     public string LastName { get; set; } = " ";
 
-    public int AddressId { get; set; } //(FK)
+    public Address? Address { get; set; }
+    public int AddressId => Address?.AddressId ?? 0; //(FK)
 
     public DateTime RegisterdDate { get; set; }
 
-    public int PreferredContactMethod { get; set; } //(PK)
+    public ContactMethod? PreferredContactMethod { get; set; }
+    public int PreferredContactMethodId => PreferredContactMethod?.ContactMethodId ?? 0; //(FK)
+
 
     public string Validate()
     {

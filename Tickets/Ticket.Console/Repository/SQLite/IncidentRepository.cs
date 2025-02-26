@@ -20,6 +20,8 @@ public class IncidentRepository : IRepository<Incident>
 
     public IEnumerable<Incident> GetAll()
     {
+        PersonRepository personRepository = new(_connectionHelper);
+
         using SQLiteConnection conn = _connectionHelper.GetConnection();
         SQLiteCommand command = conn.CreateCommand();
         command.CommandText = $"SELECT IncidentId, Status, IssueDate, IssueDescription, CreatedBy, ResolutionDate, ResolutionDescription FROM {TABLE}";
@@ -32,8 +34,7 @@ public class IncidentRepository : IRepository<Incident>
                 Status = reader.GetByte(1),
                 IssueDate = reader.GetDateTime(2),
                 IssueDescription = reader.GetString(3),
-                CreatedBy = reader.GetInt32(4),
-                
+                CreatedBy = personRepository.GetById(reader.GetInt32(4)),
                 ResolutionDescription = reader.GetString(6),
             };
 
@@ -52,6 +53,7 @@ public class IncidentRepository : IRepository<Incident>
 
     public Incident? GetById(int id)
     {
+        PersonRepository personRepository = new(_connectionHelper);
         using SQLiteConnection conn = _connectionHelper.GetConnection();
         SQLiteCommand command = conn.CreateCommand();
         command.CommandText = $"SELECT IncidentId, Status, IssueDate, IssueDescription, CreatedBy, ResolutionDate, ResolutionDescription FROM {TABLE} WHERE IncidentId=@id";
@@ -63,7 +65,7 @@ public class IncidentRepository : IRepository<Incident>
                 Status = reader.GetByte(1),
                 IssueDate = reader.GetDateTime(2),
                 IssueDescription = reader.GetString(3),
-                CreatedBy = reader.GetInt32(4),
+                CreatedBy = personRepository.GetById(reader.GetInt32(4)),
                 ResolutionDate = reader.GetDateTime(5),
                 ResolutionDescription = reader.GetString(6),
             };

@@ -2,6 +2,7 @@ using TicketLib.Repository;
 using TicketLib.Models;
 using System.Data.SQLite;
 using System.Data.Common;
+using TicketLib;
 
 namespace Ticket.Console.Repository.SQLite;
 
@@ -16,6 +17,9 @@ public class PersonRepository : IRepository<Person>
 
     public IEnumerable<Person> GetAll()
     {
+        AddressRepository addressRepo = new (_connectionHelper);
+        ContactMethodRepository contactRepo = new(_connectionHelper);
+
         using SQLiteConnection conn = _connectionHelper.GetConnection();
         SQLiteCommand command = conn.CreateCommand();
         command.CommandText = $"SELECT PersonId, FirstName, MiddleName, LastName, RegisteredDate, AddressId, PreferredContactMethodId FROM {TABLE}";
@@ -31,8 +35,8 @@ public class PersonRepository : IRepository<Person>
                 MiddleName = reader.GetString(2),
                 LastName = reader.GetString(3),
                 RegisterdDate = reader.GetDateTime(4),
-                AddressId = reader.GetInt32(5),
-                PreferredContactMethod = reader.GetInt32(6),
+                Address = addressRepo.GetById(reader.GetInt32(5)),
+                PreferredContactMethod = contactRepo.GetById(reader.GetInt32(6)),
             };
             result.Add(p);
         }
@@ -40,6 +44,9 @@ public class PersonRepository : IRepository<Person>
     }
     public Person? GetById(int id)
     {
+        AddressRepository addressRepository = new(_connectionHelper);
+        ContactMethodRepository contactRepo = new(_connectionHelper);
+
         using SQLiteConnection conn = _connectionHelper.GetConnection();
         SQLiteCommand command = conn.CreateCommand();
         command.CommandText = $"SELECT personId, firstName,middleName,lastName, registeredDate, addressId, preferredContactMethodId FROM {TABLE} WHERE personId=@id";
@@ -54,8 +61,8 @@ public class PersonRepository : IRepository<Person>
                 MiddleName = reader.GetString(2),
                 LastName = reader.GetString(3),
                 RegisterdDate = reader.GetDateTime(4),
-                AddressId = reader.GetInt32(5),
-                PreferredContactMethod = reader.GetInt32(6),
+                Address = addressRepository.GetById(reader.GetInt32(5)),
+                PreferredContactMethod = contactRepo.GetById(reader.GetInt32(6)),
             };
             return p;
         }
