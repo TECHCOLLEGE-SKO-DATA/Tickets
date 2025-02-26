@@ -79,7 +79,6 @@ public class AddressRepository : IRepository<Address>
         command.Parameters.AddWithValue("@Street", model.Street);
         command.Parameters.AddWithValue("@Number", model.Number);
         command.Parameters.AddWithValue("@CityId", model.CityId);
-        command.Parameters.AddWithValue("@CityId", model.CityId);
         command.ExecuteNonQuery();
     }
     public void Delete(int id) 
